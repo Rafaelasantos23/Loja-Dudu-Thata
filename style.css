@@ -1,10 +1,10 @@
 :root{
     :root{
 
-    --primary:#4F46E5;
-    --primary-light:#818CF8;
+    --primary:#473dff;
+    --primary-light:#6975e9;
     --secondary:#0EA5E9;
-    --blue:#38BDF8;
+    --blue:#f838f8;
 
     --dark:#111827;
     --white:#FFFFFF;
@@ -205,7 +205,7 @@ nav a:hover::after{
 
 .hero-content{
 
-    max-width:850px;
+    max-width:85/0px;
 
 }
 
