@@ -1,15 +1,24 @@
 :root{
-    --primary:#6c4cff;
-    --primary-light:#8f6cff;
-    --secondary:#ff6eb4;
-    --blue:#7dc7ff;
-    --dark:#222;
-    --white:#fff;
-    --whatsapp:#25D366;
-    --background:#f8f7ff;
+    :root{
 
-    --shadow:0 10px 30px rgba(0,0,0,.12);
-    --radius:20px;
+    --primary:#4F46E5;
+    --primary-light:#818CF8;
+    --secondary:#0EA5E9;
+    --blue:#38BDF8;
+
+    --dark:#111827;
+    --white:#FFFFFF;
+
+    --whatsapp:#25D366;
+
+    --background:#F8FAFC;
+
+    --shadow:0 10px 30px rgba(15,23,42,.12);
+
+    --radius:18px;
+
+}
+
 }
 
 
@@ -66,7 +75,7 @@ header{
     align-items:center;
 
 
-    background:rgba(255,255,255,.85);
+    background:rgba(255, 255, 255, 0.699);
 
     backdrop-filter:blur(15px);
 
@@ -184,12 +193,11 @@ nav a:hover::after{
 
     background:
 
-    linear-gradient(
-        135deg,
-        #785fcc,
-        #7dc7ff,
-        #ff7eb8
-    );
+ linear-gradient(
+    135deg,
+    #111827,
+    #4F46E5
+);
 
 }
 
