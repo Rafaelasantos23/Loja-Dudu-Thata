@@ -2,7 +2,7 @@
     :root{
 
     --primary:#473dff;
-    --primary-light:#6975e9;
+    --primary-light:#6371ee;
     --secondary:#0EA5E9;
     --blue:#f838f8;
 
@@ -264,7 +264,7 @@ nav a:hover::after{
     align-items:center;
 
 
-    background:#000000da;
+    background:#ffffff;
 
     color:var(--primary);
 
@@ -538,7 +538,7 @@ section{
     );
 
 
-    color:white;
+    color:rgb(0, 0, 0);
 
 
     text-decoration:none;
@@ -576,7 +576,7 @@ section{
 
     text-align:center;
 
-    background:white;
+    background:rgb(0, 0, 0);
 
 }
 
@@ -596,7 +596,7 @@ section{
     background:#ee4d2d;
 
 
-    color:white;
+    color:rgb(0, 0, 0);
 
 
     text-decoration:none;
@@ -661,7 +661,7 @@ footer{
 
     background:#111;
 
-    color:white;
+    color:rgb(0, 0, 0);
 
 
     text-align:center;
