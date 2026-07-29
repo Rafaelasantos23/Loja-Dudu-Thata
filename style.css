@@ -264,16 +264,15 @@ nav a:hover::after{
     align-items:center;
 
 
-    background:white;
-
+    background:#ffffff;
 
     color:var(--primary);
 
 
-    padding:15px 35px;
+    padding:14px 38px;
 
 
-    border-radius:50px;
+    border-radius:12px;
 
 
     text-decoration:none;
@@ -282,10 +281,14 @@ nav a:hover::after{
     font-weight:600;
 
 
+    font-size:1rem;
+
+
     transition:.3s ease;
 
 
-    box-shadow:var(--shadow);
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.15);
 
 }
 
