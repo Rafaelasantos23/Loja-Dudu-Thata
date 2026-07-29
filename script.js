@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // CONFIGURAÇÃO: Coloque o seu número do WhatsApp aqui (DDD + Número, sem espaço ou traço)
-  const SEU_NUMERO_WHATSAPP = "5511999999999"; 
+  const SEU_NUMERO_WHATSAPP = "62995616767"; 
 
   // 1. LÓGICA DOS CARROSSÉIS
   const carousels = document.querySelectorAll(".carousel");
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
                        `🖼️ *Foto do modelo selecionado:* ${urlImagem}`;
 
       // Cria o link do WhatsApp encodando o texto corretamente
-      const linkWhatsApp = `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+      const linkWhatsApp = `https://wa.me/${62995616767}?text=${encodeURIComponent(mensagem)}`;
 
       // Abre a conversa em uma nova aba
       window.open(linkWhatsApp, "_blank");
