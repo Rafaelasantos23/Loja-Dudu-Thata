@@ -264,7 +264,7 @@ nav a:hover::after{
     align-items:center;
 
 
-    background:#ffffff;
+    background:#000000da;
 
     color:var(--primary);
 
