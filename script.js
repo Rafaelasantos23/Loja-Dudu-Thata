@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // CONFIGURAÇÃO: Coloque o seu número do WhatsApp aqui (DDD + Número, sem espaço ou traço)
-  const SEU_NUMERO_WHATSAPP = "62995616767"; 
+  const SEU_NUMERO_WHATSAPP = "5511999999999"; // Coloque seu número aqui
 
-  // 1. LÓGICA DOS CARROSSÉIS
+  // ==========================================
+  // 1. CARROSSÉIS (ROTAÇÃO E NAVEGAÇÃO)
+  // ==========================================
   const carousels = document.querySelectorAll(".carousel");
 
   carousels.forEach((carousel) => {
@@ -57,32 +58,60 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoplay();
   });
 
-  // 2. LÓGICA DO BOTÃO "SOLICITAR ORÇAMENTO"
+  // ==========================================
+  // 2. MODAL DE ZOOM DA IMAGEM (AMPLIAR FOTO)
+  // ==========================================
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
+  const closeModal = document.querySelector(".close-modal");
+  const allCarouselImages = document.querySelectorAll(".images img");
+
+  // Abre o modal ao clicar em qualquer foto do carrossel
+  allCarouselImages.forEach((img) => {
+    img.addEventListener("click", () => {
+      if (modal && modalImg) {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+        modalImg.alt = img.alt || "Foto ampliada";
+      }
+    });
+  });
+
+  // Fecha o modal no botão 'X'
+  if (closeModal) {
+    closeModal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  // Fecha o modal ao clicar no fundo escuro
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
+
+  // ==========================================
+  // 3. ENVIAR PARA O WHATSAPP
+  // ==========================================
   const btnsOrcamento = document.querySelectorAll(".btn-orcamento");
 
   btnsOrcamento.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      e.preventDefault(); // Evita a navegação padrão
+      e.preventDefault();
 
-      // Encontra o card pai do botão
       const card = btn.closest(".card");
-      
-      // Pega o nome do produto (do atributo data-nome ou do tag h3)
       const nomeProduto = card.getAttribute("data-nome") || card.querySelector("h3")?.innerText || "Produto";
-
-      // Pega a imagem que está atualmente com a classe 'active'
       const imagemAtiva = card.querySelector(".images img.active");
       const urlImagem = imagemAtiva ? imagemAtiva.src : "";
 
-      // Monta a mensagem para o WhatsApp
       const mensagem = `Olá! Gostaria de solicitar um orçamento para o seguinte produto:\n\n` +
                        `📌 *Produto:* ${nomeProduto}\n` +
                        `🖼️ *Foto do modelo selecionado:* ${urlImagem}`;
 
-      // Cria o link do WhatsApp encodando o texto corretamente
-      const linkWhatsApp = `https://wa.me/${62995616767}?text=${encodeURIComponent(mensagem)}`;
-
-      // Abre a conversa em uma nova aba
+      const linkWhatsApp = `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
       window.open(linkWhatsApp, "_blank");
     });
   });
