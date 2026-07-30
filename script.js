@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const SEU_NUMERO_WHATSAPP = "5511999999999"; // Coloque seu número aqui
+  const SEU_NUMERO_WHATSAPP = "62995616767"; // Coloque seu número aqui
 
   // ==========================================
   // 1. CARROSSÉIS (ROTAÇÃO E NAVEGAÇÃO)
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
                        `📌 *Produto:* ${nomeProduto}\n` +
                        `🖼️ *Foto do modelo selecionado:* ${urlImagem}`;
 
-      const linkWhatsApp = `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+      const linkWhatsApp = `https://wa.me/${62995616767}?text=${encodeURIComponent(mensagem)}`;
       window.open(linkWhatsApp, "_blank");
     });
   });
