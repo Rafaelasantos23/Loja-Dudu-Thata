@@ -622,3 +622,50 @@ footer {
 html {
     scroll-behavior: smooth;
 }
+ 
+
+.menu-btn {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+
+  .menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: .4s ease;
+  }
+
+
+  nav.ativo {
+    max-height: 400px;
+  }
+
+
+  nav ul {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+
+  nav li {
+    margin: 15px 0;
+  }
+
+}
