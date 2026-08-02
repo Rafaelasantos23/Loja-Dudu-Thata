@@ -94,25 +94,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================
-  // 3. ENVIAR PARA O WHATSAPP
-  // ==========================================
-  const btnsOrcamento = document.querySelectorAll(".btn-orcamento");
+// ENVIAR PARA O WHATSAPP
+// ==========================================
 
-  btnsOrcamento.forEach((btn) => {
+const btnsOrcamento = document.querySelectorAll(".btn-orcamento");
+
+btnsOrcamento.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      e.preventDefault();
+        e.preventDefault();
 
-      const card = btn.closest(".card");
-      const nomeProduto = card.getAttribute("data-nome") || card.querySelector("h3")?.innerText || "Produto";
-      const imagemAtiva = card.querySelector(".images img.active");
-      const urlImagem = imagemAtiva ? imagemAtiva.src : "";
+        const card = btn.closest(".card");
 
-      const mensagem = `Olá! Gostaria de solicitar um orçamento para o seguinte produto:\n\n` +
-                       `📌 *Produto:* ${nomeProduto}\n` +
-                       `🖼️ *Foto do modelo selecionado:* ${urlImagem}`;
+        let nomeProduto = "Orçamento";
+        let urlImagem = "";
 
-      const linkWhatsApp = `https://wa.me/${62995616767}?text=${encodeURIComponent(mensagem)}`;
-      window.open(linkWhatsApp, "_blank");
+        if (card) {
+            nomeProduto = card.querySelector("h3")?.innerText || "Produto";
+
+            const imagem = card.querySelector(".images img.active");
+
+            if (imagem) {
+                urlImagem = imagem.src;
+            }
+        }
+
+        const mensagem =
+`Olá! Gostaria de solicitar um orçamento.
+
+Produto: ${nomeProduto}
+
+${urlImagem}`;
+
+        window.open(
+            `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`,
+            "_blank"
+        );
     });
-  });
 });

@@ -616,3 +616,9 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+
+/*rolagem suave html*/
+
+html {
+    scroll-behavior: smooth;
+}
