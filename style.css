@@ -173,17 +173,42 @@ nav a:focus-visible::after {
   animation: layerGrow .7s ease forwards;
 }
 
-.layers span:nth-child(1) { animation-delay: .9s; }
-.layers span:nth-child(2) { animation-delay: .8s; }
-.layers span:nth-child(3) { animation-delay: .7s; }
-.layers span:nth-child(4) { animation-delay: .6s; }
-.layers span:nth-child(5) { animation-delay: .5s; }
-.layers span:nth-child(6) { animation-delay: .4s; }
-.layers span:nth-child(7) { animation-delay: .3s; }
-.layers span:nth-child(8) { animation-delay: .2s; }
+.layers span:nth-child(1) {
+  animation-delay: .9s;
+}
+
+.layers span:nth-child(2) {
+  animation-delay: .8s;
+}
+
+.layers span:nth-child(3) {
+  animation-delay: .7s;
+}
+
+.layers span:nth-child(4) {
+  animation-delay: .6s;
+}
+
+.layers span:nth-child(5) {
+  animation-delay: .5s;
+}
+
+.layers span:nth-child(6) {
+  animation-delay: .4s;
+}
+
+.layers span:nth-child(7) {
+  animation-delay: .3s;
+}
+
+.layers span:nth-child(8) {
+  animation-delay: .2s;
+}
 
 @keyframes layerGrow {
-  to { transform: scaleX(1); }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 .hero-content {
@@ -293,11 +318,9 @@ section {
   left: 0;
   right: 0;
   height: 6px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--violet) 0 24px,
-    var(--coral) 24px 48px
-  );
+  background: repeating-linear-gradient(90deg,
+      var(--violet) 0 24px,
+      var(--coral) 24px 48px);
   z-index: 2;
 }
 
@@ -319,7 +342,8 @@ section {
   object-fit: cover;
   display: none;
   transition: transform .35s ease;
-  cursor: pointer; /* Cursor de mãozinha indicando que a foto pode ser clicada */
+  cursor: pointer;
+  /* Cursor de mãozinha indicando que a foto pode ser clicada */
 }
 
 .images img.active {
@@ -475,14 +499,14 @@ footer {
    MODAL DE ZOOM DA IMAGEM (NOVO)
    ========================================================================== */
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 2000; 
+  display: none;
+  position: fixed;
+  z-index: 2000;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  background-color: rgba(0, 0, 0, 0.9); 
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   justify-content: center;
@@ -516,8 +540,15 @@ footer {
 }
 
 @keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* MOBILE */
@@ -620,7 +651,7 @@ footer {
 /*rolagem suave html*/
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 768px) {
@@ -641,9 +672,13 @@ html {
     right: 15px;
     width: 220px;
 
-    background: white;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
 
     transform: scale(0);
     transform-origin: top right;
