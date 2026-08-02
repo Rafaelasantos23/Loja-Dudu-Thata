@@ -622,12 +622,6 @@ footer {
 html {
     scroll-behavior: smooth;
 }
- 
-
-.menu-btn {
-  display: none;
-}
-
 
 @media (max-width: 768px) {
 
@@ -637,35 +631,49 @@ html {
     border: none;
     font-size: 30px;
     cursor: pointer;
+    z-index: 1002;
+    color: #333;
   }
-
 
   nav {
     position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
+    top: 65px;
+    right: 15px;
+    width: 220px;
+
     background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
 
-    max-height: 0;
-    overflow: hidden;
-    transition: .4s ease;
+    transform: scale(0);
+    transform-origin: top right;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: .3s ease;
   }
-
 
   nav.ativo {
-    max-height: 400px;
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
   }
-
 
   nav ul {
+    display: flex;
     flex-direction: column;
     padding: 20px;
+    gap: 15px;
   }
 
-
   nav li {
-    margin: 15px 0;
+    list-style: none;
+  }
+
+  nav a {
+    display: block;
+    padding: 10px;
   }
 
 }
