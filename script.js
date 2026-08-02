@@ -123,7 +123,9 @@ const nav = document.querySelector("nav");
 
 menuBtn.addEventListener("click", () => {
   nav.classList.toggle("ativo");
+  menuBtn.classList.toggle("ativo");
 });
+
 
 //diminuir quando clicar
 const linksMenu = document.querySelectorAll("nav a");
@@ -131,6 +133,8 @@ const linksMenu = document.querySelectorAll("nav a");
 linksMenu.forEach((link) => {
   link.addEventListener("click", () => {
     nav.classList.remove("ativo");
+    menuBtn.classList.remove("ativo");
   });
 });
+
 
