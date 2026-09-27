@@ -559,8 +559,11 @@ footer {
   }
 
   .hero {
-    min-height: auto;
-    padding-top: 180px;
+    /* Tela cheia no celular também — só desce pro catálogo ao rolar ou
+       clicar em "Ver Produtos", igual já era no PC. */
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: 130px;
   }
 
   .hero p {
@@ -774,55 +777,60 @@ html {
 
 /* ==========================================================================
    INDICADORES NUMERADOS DO CARROSSEL — "1 2 3 4 5" (NOVO)
-   Substituem/complementam as setas para navegação rápida e dão um ar
-   mais profissional/padrão de e-commerce.
+   Ficam numa faixa abaixo da foto (não por cima), com rolagem horizontal
+   quando há muitas fotos — assim a imagem e o texto do card não ficam
+   escondidos atrás dos números.
    ========================================================================== */
 .carousel-dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 12px;
+  position: static;
   z-index: 3;
 
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  padding: 0 54px;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 8px 10px;
+
+  background: var(--white);
+  scrollbar-width: none;
+}
+
+.carousel-dots::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-dot {
+  flex: 0 0 auto;
   min-width: 26px;
   height: 26px;
   padding: 0 6px;
   border-radius: 999px;
   border: none;
 
-  background: rgba(32, 27, 46, .45);
-  color: var(--white);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font-body);
   font-size: .72rem;
   font-weight: 700;
   line-height: 1;
 
   cursor: pointer;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
   transition: var(--transition);
 }
 
 .carousel-dot:hover,
 .carousel-dot:focus-visible {
-  background: rgba(32, 27, 46, .7);
+  background: #e6e2d8;
 }
 
 .carousel-dot.active {
   background: var(--coral);
+  color: var(--white);
   transform: scale(1.12);
 }
 
-/* Contador "3/12" no canto — reforça o padrão numerado em telas pequenas */
+/* Contador "3/12" no canto da foto — reforço rápido de onde você está */
 .carousel-count {
   position: absolute;
   top: 12px;
@@ -841,10 +849,15 @@ html {
 }
 
 @media (max-width: 768px) {
-  /* Com carrosséis de até 22 fotos, mostrar cada número lotava a imagem.
-     No celular fica só o contador ("8/22") — mais limpo, padrão de app de compras. */
   .carousel-dots {
-    display: none;
+    gap: 5px;
+    padding: 7px 8px;
+  }
+
+  .carousel-dot {
+    min-width: 22px;
+    height: 22px;
+    font-size: .64rem;
   }
 
   .carousel-count {
