@@ -593,22 +593,62 @@ footer {
     padding: 70px 5%;
   }
 
+  /* Catálogo em grade 2 colunas, no padrão de app de compras (Shopee) */
   .produtos {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .card {
+    border-radius: 14px;
+  }
+
+  .card::before {
+    height: 4px;
   }
 
   .card:hover {
     transform: none;
   }
 
+  /* Foto quadrada, como miniatura de produto — sem depender de altura fixa */
   .images img {
-    height: 230px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
+  /* Setas somem no catálogo mobile: navega por toque/swipe, como nos apps de compra */
   .prev,
   .next {
-    width: 35px;
-    height: 35px;
+    display: none;
+  }
+
+  /* Título e descrição curtos, do jeitinho de card de produto */
+  .card h3 {
+    font-size: .9rem;
+    padding: 10px 10px 4px;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card p {
+    font-size: .76rem;
+    padding: 0 10px 10px;
+    color: #837f8c;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .btn-orcamento {
+    width: auto;
+    margin: 0 10px 12px;
+    padding: 9px;
+    font-size: .8rem;
   }
 
   .titulo {
@@ -619,10 +659,6 @@ footer {
     font-size: 1rem;
   }
 
-  .btn-orcamento {
-    width: calc(100% - 30px);
-  }
-
   .layers {
     padding-bottom: 20px;
     gap: 7px;
@@ -630,6 +666,13 @@ footer {
 
   .layers span {
     height: 7px;
+  }
+}
+
+/* Telas bem estreitas: volta pra 1 coluna pra não espremer demais */
+@media (max-width: 360px) {
+  .produtos {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -815,21 +858,24 @@ html {
 }
 
 @media (max-width: 768px) {
+  /* Sem setas no mobile, os indicadores não precisam de respiro lateral */
   .carousel-dots {
-    padding: 0 42px;
-    bottom: 8px;
-    gap: 6px;
+    padding: 0 8px;
+    bottom: 6px;
+    gap: 4px;
   }
 
   .carousel-dot {
-    min-width: 22px;
-    height: 22px;
-    font-size: .66rem;
+    min-width: 18px;
+    height: 18px;
+    font-size: .58rem;
   }
 
   .carousel-count {
-    font-size: .64rem;
-    padding: 3px 8px;
+    font-size: .6rem;
+    padding: 2px 7px;
+    top: 8px;
+    right: 8px;
   }
 }
 
@@ -879,10 +925,15 @@ html {
 
 @media (max-width: 768px) {
   .placeholder-slide {
-    height: 230px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .placeholder-number {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
+  }
+
+  .placeholder-slide span.placeholder-label {
+    font-size: .68rem;
   }
 }
