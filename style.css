@@ -605,21 +605,22 @@ footer {
     display: none;
   }
 
-  /* Título e descrição curtos, do jeitinho de card de produto */
+  /* Título e descrição — texto maior e com mais linhas pra dar pra ler no card pequeno */
   .card h3 {
-    font-size: .9rem;
+    font-size: 1rem;
     padding: 10px 10px 4px;
-    line-height: 1.25;
+    line-height: 1.3;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
   .card p {
-    font-size: .76rem;
-    padding: 0 10px 10px;
-    color: #837f8c;
+    font-size: .82rem;
+    line-height: 1.4;
+    padding: 0 10px 12px;
+    color: #5a5563;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -840,22 +841,15 @@ html {
 }
 
 @media (max-width: 768px) {
-  /* Sem setas no mobile, os indicadores não precisam de respiro lateral */
+  /* Com carrosséis de até 22 fotos, mostrar cada número lotava a imagem.
+     No celular fica só o contador ("8/22") — mais limpo, padrão de app de compras. */
   .carousel-dots {
-    padding: 0 8px;
-    bottom: 6px;
-    gap: 4px;
-  }
-
-  .carousel-dot {
-    min-width: 18px;
-    height: 18px;
-    font-size: .58rem;
+    display: none;
   }
 
   .carousel-count {
-    font-size: .6rem;
-    padding: 2px 7px;
+    font-size: .68rem;
+    padding: 3px 9px;
     top: 8px;
     right: 8px;
   }
