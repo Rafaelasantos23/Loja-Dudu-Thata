@@ -303,6 +303,8 @@ section {
 
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--white);
   border-radius: var(--radius);
   overflow: hidden;
@@ -387,12 +389,14 @@ section {
 .card p {
   padding: 0 15px 20px;
   color: #6b6572;
+  flex: 1 0 auto;
 }
 
 /* ORÇAMENTO */
 .btn-orcamento {
   display: block;
   margin: 0 15px 20px;
+  margin-top: auto;
   padding: 13px;
 
   background: linear-gradient(135deg, var(--violet), var(--violet-deep));
@@ -608,15 +612,11 @@ footer {
     display: none;
   }
 
-  /* Título e descrição — texto maior e com mais linhas pra dar pra ler no card pequeno */
+  /* Título e descrição — texto completo, sem cortar, no card pequeno */
   .card h3 {
     font-size: 1rem;
     padding: 10px 10px 4px;
     line-height: 1.3;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   .card p {
@@ -624,15 +624,13 @@ footer {
     line-height: 1.4;
     padding: 0 10px 12px;
     color: #5a5563;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    flex: 1 0 auto;
   }
 
   .btn-orcamento {
     width: auto;
     margin: 0 10px 12px;
+    margin-top: auto;
     padding: 9px;
     font-size: .8rem;
   }
