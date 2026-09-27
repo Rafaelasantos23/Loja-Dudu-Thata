@@ -454,6 +454,47 @@ section {
   box-shadow: 0 10px 25px rgba(238, 77, 45, .35);
 }
 
+/* BAMBU HANDY */
+.bambu {
+  text-align: center;
+  background: var(--paper);
+}
+
+.bambu h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+}
+
+.bambu p {
+  margin-top: 12px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #6b6572;
+}
+
+.btn-bambu {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 40px;
+
+  background: linear-gradient(135deg, var(--teal), #009488);
+  color: var(--white);
+
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 700;
+
+  transition: var(--transition);
+}
+
+.btn-bambu:hover,
+.btn-bambu:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 184, 169, .35);
+}
+
 /* SOBRE */
 .texto {
   max-width: 900px;
