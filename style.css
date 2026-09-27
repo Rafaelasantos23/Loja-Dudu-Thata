@@ -533,6 +533,8 @@ footer {
   cursor: pointer;
   transition: color 0.2s;
   z-index: 2001;
+  background: transparent;
+  border: none;
 }
 
 .close-modal:hover {
@@ -742,4 +744,145 @@ html {
 
 .menu-btn.ativo span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   INDICADORES NUMERADOS DO CARROSSEL — "1 2 3 4 5" (NOVO)
+   Substituem/complementam as setas para navegação rápida e dão um ar
+   mais profissional/padrão de e-commerce.
+   ========================================================================== */
+.carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  z-index: 3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 0 54px;
+}
+
+.carousel-dot {
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  border-radius: 999px;
+  border: none;
+
+  background: rgba(32, 27, 46, .45);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1;
+
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  transition: var(--transition);
+}
+
+.carousel-dot:hover,
+.carousel-dot:focus-visible {
+  background: rgba(32, 27, 46, .7);
+}
+
+.carousel-dot.active {
+  background: var(--coral);
+  transform: scale(1.12);
+}
+
+/* Contador "3/12" no canto — reforça o padrão numerado em telas pequenas */
+.carousel-count {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+
+  background: rgba(32, 27, 46, .55);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: .7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 768px) {
+  .carousel-dots {
+    padding: 0 42px;
+    bottom: 8px;
+    gap: 6px;
+  }
+
+  .carousel-dot {
+    min-width: 22px;
+    height: 22px;
+    font-size: .66rem;
+  }
+
+  .carousel-count {
+    font-size: .64rem;
+    padding: 3px 8px;
+  }
+}
+
+/* ==========================================================================
+   CARDS "EM BREVE" — para as novas categorias sem fotos ainda (NOVO)
+   Basta trocar este bloco pelo mesmo padrão de carrossel com fotos
+   assim que as imagens da categoria estiverem prontas.
+   ========================================================================== */
+.placeholder-slide {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: linear-gradient(135deg, var(--violet) 0%, var(--violet-deep) 60%, var(--ink) 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.placeholder-number {
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.placeholder-slide span.placeholder-label {
+  font-family: var(--font-body);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: rgba(255, 255, 255, .78);
+}
+
+.card-placeholder {
+  opacity: .95;
+}
+
+.card-placeholder::before {
+  background: repeating-linear-gradient(90deg,
+      var(--teal) 0 24px,
+      var(--coral) 24px 48px);
+}
+
+@media (max-width: 768px) {
+  .placeholder-slide {
+    height: 230px;
+  }
+
+  .placeholder-number {
+    font-size: 2.6rem;
+  }
 }

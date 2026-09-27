@@ -4,323 +4,428 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
 
-<title>Dudu & Thata 3D | Impressão 3D e Produtos Personalizados</title>
-<meta name="description" content="Peças personalizadas em impressão 3D, miniaturas, brindes e decoração.">
+<title>Dudu & Thata 3D | Impressão 3D e Produtos Personalizados em Goiânia</title>
+<meta name="description" content="Chaveiros, miniaturas, porta-copos e brinquedos sensoriais em impressão 3D personalizada. Peça seu orçamento pelo WhatsApp e confira nosso catálogo completo.">
+<meta name="keywords" content="impressão 3D, chaveiros personalizados, miniaturas 3D, porta copo, brinquedos sensoriais, Dudu e Thata 3D">
+<meta name="author" content="Dudu & Thata 3D">
+<link rel="canonical" href="https://www.duduethata3d.com.br/">
+
+<!-- Open Graph / redes sociais -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dudu & Thata 3D | Impressão 3D e Produtos Personalizados">
+<meta property="og:description" content="Damos forma à sua imaginação: chaveiros, miniaturas, porta-copos e brinquedos sensoriais personalizados em impressão 3D.">
+<meta property="og:image" content="./img/imglogo.png">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://www.duduethata3d.com.br/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dudu & Thata 3D | Impressão 3D e Produtos Personalizados">
+<meta name="twitter:description" content="Chaveiros, miniaturas, porta-copos e brinquedos sensoriais em impressão 3D personalizada.">
+<meta name="twitter:image" content="./img/imglogo.png">
+
+<link rel="icon" type="image/png" href="./img/imglogo.png">
+<link rel="apple-touch-icon" href="./img/imglogo.png">
 
 <link rel="stylesheet" href="style.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Dados estruturados para SEO local -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Dudu & Thata 3D",
+  "description": "Impressão 3D e produtos personalizados: chaveiros, miniaturas, porta-copos e brinquedos sensoriais.",
+  "image": "./img/imglogo.png",
+  "telephone": "+5562995616767",
+  "sameAs": [
+    "https://www.instagram.com/duduethata3d",
+    "https://shopee.com.br/duduethata3d"
+  ]
+}
+</script>
+
 </head>
 
 <body>
 
-  <div id="image-modal" class="modal">
-  <span class="close-modal">&times;</span>
-  <img class="modal-content" id="modal-img" alt="Imagem Ampliada">
+<div id="image-modal" class="modal">
+  <button class="close-modal" aria-label="Fechar imagem ampliada">&times;</button>
+  <img class="modal-content" id="modal-img" alt="Imagem ampliada do produto">
 </div>
 
 <header>
 
-<div class="logo">
-<img src="./img/imglogo.png" alt="Dudu&Thata 3D">
-</div>
+  <div class="logo">
+    <img src="./img/imglogo.png" alt="Logotipo Dudu & Thata 3D" width="120" height="60">
+  </div>
 
-<button class="menu-btn" id="menu-btn">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+  <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-
-<nav>
-<ul>
-<li><a href="#inicio">Início</a></li>
-<li><a href="#catalogo">Catálogo</a></li>
-<li><a href="#sobre">Sobre Nós</a></li>
-<li><a href="#contato">Contato</a></li>
-<li><a href="https://shopee.com.br/duduethata3d?entryPoint=ShopBySearch&searchKeyword=duduethata3d" target="_blank">Shopee</a></li>
-<li><a href="https://www.instagram.com/duduethata3d?igsh=bW1kcjV2MWVzazNh&utm_source=qr" target="_blank">Instagram</a></li>
-
-</ul>
-</nav>
+  <nav id="main-nav" aria-label="Menu principal">
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#sobre">Sobre Nós</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="https://shopee.com.br/duduethata3d?entryPoint=ShopBySearch&searchKeyword=duduethata3d" target="_blank" rel="noopener noreferrer">Shopee</a></li>
+      <li><a href="https://www.instagram.com/duduethata3d?igsh=bW1kcjV2MWVzazNh&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    </ul>
+  </nav>
 
 </header>
 
+<main>
+
 <section class="hero" id="inicio">
 
-<div class="hero-content">
+  <div class="hero-content">
 
-<h1>Dudu & Thata 3D</h1>
+    <h1>Dudu & Thata 3D</h1>
 
-<p>
-Damos forma à sua imaginação.
-</p>
+    <p>Damos forma à sua imaginação.</p>
 
-<div class="buttons">
+    <div class="buttons">
+      <a href="#catalogo" class="btn">Ver Produtos</a>
+      <a class="btn whatsapp" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767?text=Olá!%20Vim%20através%20do%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento.">
+        Solicitar orçamento
+      </a>
+    </div>
 
-<a href="#catalogo" class="btn">
-Ver Produtos
-</a>
-
-<a 
-class="btn whatsapp"
-target="_blank"
-href="https://wa.me/5562995616767?text=Olá!%20Vim%20através%20do%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento.">
-Solicitar orçamento
-</a>
-
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 <section id="catalogo">
 
-<h2 class="titulo">Produtos em Destaque</h2>
+  <h2 class="titulo">Produtos em Destaque</h2>
 
-<div class="produtos">
+  <div class="produtos">
 
-<!-- CARD 1 -->
-<div class="card">
+    <!-- CARD 1: Chaveiros -->
+    <div class="card">
 
-<div class="carousel">
-<button class="prev" aria-label="Imagem anterior">&#10094;</button>
+      <div class="carousel">
+        <button class="prev" aria-label="Imagem anterior">&#10094;</button>
 
-<div class="images">
-<img src="./img/imsualogo.png" class="active" data-name="Chaveiro Logo" alt="Chaveiro Logo">
-<img src="./img/imgletra.png" data-name="Chaveiro Letra" alt="Chaveiro Letra">
-<img src="./img/imgjhon.png" data-name="Chaveiro John" alt="Chaveiro John">
-<img src="./img/imgacm.png" data-name="Chaveiro ACM" alt="Chaveiro ACM">
-<img src="./img/imgferragista.png" data-name="Chaveiro Ferragista" alt="Chaveiro Ferragista">
-<img src="./img/imgbarbearia.png" data-name="Chaveiro Barbearia" alt="Chaveiro Barbearia">
-<img src="./img/chaveiro (coisas estranhas).jpeg" data-name="chaveiro coisas estranhas" alt="Chaveiro coisa estranhas ">
-<img src="./img/cahveiros academia3.jpeg" data-name="Chaveiro acm" alt="Chaveiro acm">
-<img src="./img/capivara.jpeg" data-name="Chaveiro capivara" alt="Chaveiro capivara">
-<img src="./img/chav stity.jpeg" data-name="Chaveiro stity" alt="Chaveiro stity">
-<img src="./img/chaveiro aries.jpeg" data-name="Chaveiro signo" alt="Chaveiro signo">
-<img src="./img/chaveiro banguela.jpeg" data-name="Chaveiro bangela" alt="Chaveiro bangela">
-<img src="./img/chaveiro camera.jpeg" data-name="Chaveiro camera" alt="Chaveiro camera">
-<img src="./img/chaveiro camera2.jpeg" data-name="Chaveiro camera" alt="Chaveiro camera">
-<img src="./img/chaveiro flor.jpeg" data-name="Chaveiro flor" alt="Chaveiro flor">
-<img src="./img/chaveiro time.jpeg" data-name="Chaveiro time" alt="Chaveiro time">
-<img src="./img/chaveiro time2.jpeg" data-name="Chaveiro time" alt="Chaveiro time">
-<img src="./img/chaveiro ursinho puff.jpeg" data-name="Chaveiro ursinho puff" alt="Chaveiro ursinho puff">
-<img src="./img/chaveiros bloco.jpeg" data-name="Chaveiro bloco" alt="Chaveiro bloco">
-<img src="./img/chaveiros brasil.jpeg" data-name="Chaveiro brasil" alt="Chaveiro brasil">
-<img src="./img/chaveiros variados.jpeg" data-name="Chaveiro variados" alt="Chaveiro variados">
-<img src="./img/taça .jpeg" data-name="Chaveiro taça" alt="Chaveiro taça">
-</div>
+        <div class="images">
+          <img src="./img/imsualogo.png" class="active" data-name="Chaveiro Logo" alt="Chaveiro personalizado com logotipo">
+          <img src="./img/imgletra.png" data-name="Chaveiro Letra" alt="Chaveiro personalizado em formato de letra" loading="lazy">
+          <img src="./img/imgjhon.png" data-name="Chaveiro John" alt="Chaveiro personalizado" loading="lazy">
+          <img src="./img/imgacm.png" data-name="Chaveiro ACM" alt="Chaveiro personalizado de academia" loading="lazy">
+          <img src="./img/imgferragista.png" data-name="Chaveiro Ferragista" alt="Chaveiro personalizado para ferragista" loading="lazy">
+          <img src="./img/imgbarbearia.png" data-name="Chaveiro Barbearia" alt="Chaveiro personalizado para barbearia" loading="lazy">
+          <img src="./img/chaveiro (coisas estranhas).jpeg" data-name="Chaveiro coisas estranhas" alt="Chaveiro temático" loading="lazy">
+          <img src="./img/cahveiros academia3.jpeg" data-name="Chaveiro academia" alt="Chaveiro de academia" loading="lazy">
+          <img src="./img/capivara.jpeg" data-name="Chaveiro capivara" alt="Chaveiro em formato de capivara" loading="lazy">
+          <img src="./img/chav stity.jpeg" data-name="Chaveiro stity" alt="Chaveiro personalizado" loading="lazy">
+          <img src="./img/chaveiro aries.jpeg" data-name="Chaveiro signo" alt="Chaveiro do signo de áries" loading="lazy">
+          <img src="./img/chaveiro banguela.jpeg" data-name="Chaveiro banguela" alt="Chaveiro personagem banguela" loading="lazy">
+          <img src="./img/chaveiro camera.jpeg" data-name="Chaveiro câmera" alt="Chaveiro em formato de câmera" loading="lazy">
+          <img src="./img/chaveiro camera2.jpeg" data-name="Chaveiro câmera" alt="Chaveiro em formato de câmera" loading="lazy">
+          <img src="./img/chaveiro flor.jpeg" data-name="Chaveiro flor" alt="Chaveiro em formato de flor" loading="lazy">
+          <img src="./img/chaveiro time.jpeg" data-name="Chaveiro time" alt="Chaveiro de time de futebol" loading="lazy">
+          <img src="./img/chaveiro time2.jpeg" data-name="Chaveiro time" alt="Chaveiro de time de futebol" loading="lazy">
+          <img src="./img/chaveiro ursinho puff.jpeg" data-name="Chaveiro ursinho puff" alt="Chaveiro em formato de ursinho" loading="lazy">
+          <img src="./img/chaveiros bloco.jpeg" data-name="Chaveiro bloco" alt="Chaveiro em formato de bloco" loading="lazy">
+          <img src="./img/chaveiros brasil.jpeg" data-name="Chaveiro Brasil" alt="Chaveiro temático do Brasil" loading="lazy">
+          <img src="./img/chaveiros variados.jpeg" data-name="Chaveiros variados" alt="Conjunto de chaveiros variados" loading="lazy">
+          <img src="./img/taça .jpeg" data-name="Chaveiro taça" alt="Chaveiro em formato de taça" loading="lazy">
+        </div>
 
-<button class="next" aria-label="Próxima imagem">&#10095;</button>
-</div>
+        <button class="next" aria-label="Próxima imagem">&#10095;</button>
+      </div>
 
-<h3>Chaveiros personalizados</h3>
-<p>Chaveiros prontos e personalizados para sua marca, empresa ou ideia. Peça seu orçamento!</p>
+      <h3>Chaveiros personalizados</h3>
+      <p>Chaveiros prontos e personalizados para sua marca, empresa ou ideia. Peça seu orçamento!</p>
 
-<a 
-  class="btn whatsapp btn-orcamento"
-  target="_blank"
-  href="https://wa.me/5562995616767">
-  Solicitar orçamento
-</a>
+      <a class="btn whatsapp btn-orcamento" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767">
+        Solicitar orçamento
+      </a>
 
-</div>
+    </div>
 
-<!-- CARD 2 -->
-<div class="card">
+    <!-- CARD 2: Brinquedos -->
+    <div class="card">
 
-<div class="carousel">
-<button class="prev" aria-label="Imagem anterior">&#10094;</button>
+      <div class="carousel">
+        <button class="prev" aria-label="Imagem anterior">&#10094;</button>
 
-<div class="images">
-<img src="./img/imgovodragao (1).jpeg" class="active" data-name="Ovo de dragão" alt="Ovo de dragão">
-<img src="./img/imgestrela.jpg" data-name="estrela flexivel" alt="estrela flexivel">
-<img src="./img/imgovodragao (2).jpeg" data-name="acessorio com bola" alt="bola com acessorio">
-<img src="./img/imgovodragao (3).jpeg" data-name="cobra flexivel" alt="cobra flexivel">
-<img src="./img/imgovodragao (4).jpeg" data-name="dado flexivel" alt="dado flexivel">
-<img src="./img/imgovodragao (5).jpeg" data-name="Parafuso com rosca" alt=" Parafuso com rosca">
-<img src="./img/jogo do dino.jpeg" data-name="jogo do dino" alt="jogo dino">
-<img src="./img/balarina sensorial 2.jpeg" data-name="balarina sensorial" alt="balarina sensorial">
-<img src="./img/balarina sensorial.jpeg" data-name="balarina sensorial" alt="balarina sensorial">
-<img src="./img/brinquedo nuvem.jpeg" data-name="brinquedo nuvem" alt="briquedo nuvem">
-<img src="./img/imgovodragao (6).jpeg" data-name="ovo dragao" alt="ovo dragao">
-<img src="./img/imgclickbola.jpg" data-name="bola click" alt="bola click">
-<img src="./img/ovo de dragaoo.jpeg" data-name="ovo dragao" alt="ovo dragao">
-<img src="./img/ovo de dragaoo2q.jpeg" data-name="ovo dragao" alt="ovo dragao">
-</div>
+        <div class="images">
+          <img src="./img/imgovodragao (1).jpeg" class="active" data-name="Ovo de dragão" alt="Brinquedo sensorial ovo de dragão">
+          <img src="./img/imgestrela.jpg" data-name="Estrela flexível" alt="Brinquedo sensorial estrela flexível" loading="lazy">
+          <img src="./img/imgovodragao (2).jpeg" data-name="Acessório com bola" alt="Acessório sensorial com bola" loading="lazy">
+          <img src="./img/imgovodragao (3).jpeg" data-name="Cobra flexível" alt="Brinquedo sensorial cobra flexível" loading="lazy">
+          <img src="./img/imgovodragao (4).jpeg" data-name="Dado flexível" alt="Brinquedo sensorial dado flexível" loading="lazy">
+          <img src="./img/imgovodragao (5).jpeg" data-name="Parafuso com rosca" alt="Brinquedo sensorial parafuso com rosca" loading="lazy">
+          <img src="./img/jogo do dino.jpeg" data-name="Jogo do dino" alt="Jogo do dino impresso em 3D" loading="lazy">
+          <img src="./img/balarina sensorial 2.jpeg" data-name="Bailarina sensorial" alt="Brinquedo sensorial bailarina" loading="lazy">
+          <img src="./img/balarina sensorial.jpeg" data-name="Bailarina sensorial" alt="Brinquedo sensorial bailarina" loading="lazy">
+          <img src="./img/brinquedo nuvem.jpeg" data-name="Brinquedo nuvem" alt="Brinquedo sensorial em formato de nuvem" loading="lazy">
+          <img src="./img/imgovodragao (6).jpeg" data-name="Ovo de dragão" alt="Brinquedo sensorial ovo de dragão" loading="lazy">
+          <img src="./img/imgclickbola.jpg" data-name="Bola click" alt="Brinquedo sensorial bola click" loading="lazy">
+          <img src="./img/ovo de dragaoo.jpeg" data-name="Ovo de dragão" alt="Brinquedo sensorial ovo de dragão" loading="lazy">
+          <img src="./img/ovo de dragaoo2q.jpeg" data-name="Ovo de dragão" alt="Brinquedo sensorial ovo de dragão" loading="lazy">
+        </div>
 
-<button class="next" aria-label="Próxima imagem">&#10095;</button>
-</div>
+        <button class="next" aria-label="Próxima imagem">&#10095;</button>
+      </div>
 
-<h3>Brinquedos - Jogos</h3>
-<p> Brinquedos sensoriais 3D para estimular a criatividade, aliviar o estresse e trazer 
-  diversão para todas as idades. Qualidade, inovação e diversão em um só produto.</p>
+      <h3>Brinquedos e Jogos</h3>
+      <p>Brinquedos sensoriais 3D para estimular a criatividade, aliviar o estresse e trazer diversão para todas as idades. Qualidade, inovação e diversão em um só produto.</p>
 
-<a 
-  class="btn whatsapp btn-orcamento"
-  target="_blank"
-  href="https://wa.me/5562995616767">
-  Solicitar orçamento
-</a>
+      <a class="btn whatsapp btn-orcamento" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767">
+        Solicitar orçamento
+      </a>
 
-</div>
+    </div>
 
-<!-- CARD 3 -->
-<div class="card">
+    <!-- CARD 3: Porta Copo -->
+    <div class="card">
 
-<div class="carousel">
-<button class="prev" aria-label="Imagem anterior">&#10094;</button>
+      <div class="carousel">
+        <button class="prev" aria-label="Imagem anterior">&#10094;</button>
 
-<div class="images">
-<img src="./img/suporte copo moster 3.jpeg" class="active" data-name="suporte copo" alt="suporte copo">
-<img src="./img/suporte copo time.jpeg" data-name="suporte copo" alt="suporte copo">
-<img src="./img/suporte garrafa cinza.jpeg" data-name="suporte garrafa" alt="suporte garrafa">
-<img src="./img/suporte garrafa long neck.jpeg" data-name="suporte garrafa" alt="suporte garrafa">
-<img src="./img/suporte lata dourado e verde.jpeg" data-name="suporte copo" alt="suporte copo">
-<img src="./img/suporte lata moster 2.jpeg" data-name="suporte copo" alt="suporte copo">
-<img src="./img/suporte lata moster.jpeg" data-name="Suporte Copo" alt="Suporte Copo">
-<img src="./img/suporte copo moster 3.jpeg" data-name="Suporte Copo" alt="Suporte Copo">
-</div>
+        <div class="images">
+          <img src="./img/suporte copo moster 3.jpeg" class="active" data-name="Suporte copo" alt="Suporte para copo personalizado">
+          <img src="./img/suporte copo time.jpeg" data-name="Suporte copo" alt="Suporte para copo com tema de time" loading="lazy">
+          <img src="./img/suporte garrafa cinza.jpeg" data-name="Suporte garrafa" alt="Suporte para garrafa" loading="lazy">
+          <img src="./img/suporte garrafa long neck.jpeg" data-name="Suporte garrafa" alt="Suporte para garrafa long neck" loading="lazy">
+          <img src="./img/suporte lata dourado e verde.jpeg" data-name="Suporte lata" alt="Suporte para lata dourado e verde" loading="lazy">
+          <img src="./img/suporte lata moster 2.jpeg" data-name="Suporte lata" alt="Suporte para lata" loading="lazy">
+          <img src="./img/suporte lata moster.jpeg" data-name="Suporte lata" alt="Suporte para lata" loading="lazy">
+        </div>
 
-<button class="next" aria-label="Próxima imagem">&#10095;</button>
-</div>
+        <button class="next" aria-label="Próxima imagem">&#10095;</button>
+      </div>
 
-<h3>Porta Copo</h3>
-<p>Canecas 3D Personalizadas
+      <h3>Porta Copo</h3>
+      <p>Suportes 3D personalizados com seu tema, time, marca ou nome. Ideais para presentes, coleções e decoração. Solicite seu orçamento!</p>
 
-Canecas 3D com designs exclusivos ou personalizadas com seu tema, personagem, 
-marca ou nome. Ideais para presentes, coleções e decoração. Solicite seu orçamento!</p>
+      <a class="btn whatsapp btn-orcamento" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767">
+        Solicitar orçamento
+      </a>
 
-<a 
-  class="btn whatsapp btn-orcamento"
-  target="_blank"
-  href="https://wa.me/5562995616767">
-  Solicitar orçamento
-</a>
+    </div>
 
-</div>
+    <!-- CARD 4: Miniaturas -->
+    <div class="card">
 
-<!-- CARD 4 -->
-<div class="card">
+      <div class="carousel">
+        <button class="prev" aria-label="Imagem anterior">&#10094;</button>
 
-<div class="carousel">
-<button class="prev" aria-label="Imagem anterior">&#10094;</button>
+        <div class="images">
+          <img src="./img/personagens videogame.jpeg" class="active" data-name="Personagens" alt="Miniaturas de personagens de videogame">
+          <img src="./img/palhaço.jpeg" data-name="Personagem" alt="Miniatura de palhaço" loading="lazy">
+          <img src="./img/boneco flajola.png" data-name="Personagem" alt="Miniatura de boneco" loading="lazy">
+          <img src="./img/boneco mario.png" data-name="Personagem" alt="Miniatura do personagem Mario" loading="lazy">
+          <img src="./img/boneco homem aranha.png" data-name="Personagem" alt="Miniatura do Homem-Aranha" loading="lazy">
+          <img src="./img/boneco hulk.png" data-name="Personagem" alt="Miniatura do Hulk" loading="lazy">
+          <img src="./img/boneco patolino.png" data-name="Personagem" alt="Miniatura do Patolino" loading="lazy">
+          <img src="./img/boneco bart.png" data-name="Personagem" alt="Miniatura do Bart Simpson" loading="lazy">
+          <img src="./img/boneco corinthias.png" data-name="Personagem" alt="Miniatura com tema Corinthians" loading="lazy">
+        </div>
 
-<div class="images">
-<img src="./img/personagens videogame.jpeg" class="active" data-name="personagem" alt="personagem">
-<img src="./img/palhaço.jpeg" data-name="personagem" alt="personagem">
-<img src="./img/boneco flajola.png" data-name="personagem" alt="personagem">
-<img src="./img/boneco mario.png" data-name="personagem" alt="personagem">
-<img src="./img/boneco homem aranha.png" data-name="personagem" alt="personagem">
-<img src="./img/boneco hulk.png" data-name="personagem" alt="personagem">
-<img src="./img/boneco patolino.png" data-name="personagem" alt="personagem">
-<img src="./img/boneco bart.png" data-name="personagem" alt="personagem">
-<img src="./img/boneco corinthias.png" data-name="personagem" alt="personagem">
-</div>
+        <button class="next" aria-label="Próxima imagem">&#10095;</button>
+      </div>
 
-<button class="next" aria-label="Próxima imagem">&#10095;</button>
-</div>
+      <h3>Miniaturas</h3>
+      <p>Miniaturas 3D prontas e personalizadas de personagens, bonecos e projetos. Peças únicas com detalhes incríveis para colecionar, presentear ou decorar!</p>
 
-<h3>Miniaturas</h3>
-<p> Miniaturas 3D prontas e personalizadas de personagens, bonecos e
-   projetos. Peças únicas com detalhes incríveis para colecionar, presentear ou decorar!</p>
+      <a class="btn whatsapp btn-orcamento" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767">
+        Solicitar orçamento
+      </a>
 
-<a 
-  class="btn whatsapp btn-orcamento"
-  target="_blank"
-  href="https://wa.me/5562995616767">
-  Solicitar orçamento
-</a>
+    </div>
 
-</div>
+    <!-- CARD 5: Peças personalizadas -->
+    <div class="card">
 
-<!-- CARD 5 -->
-<div class="card">
+      <div class="carousel">
+        <button class="prev" aria-label="Imagem anterior">&#10094;</button>
 
-<div class="carousel">
-<button class="prev" aria-label="Imagem anterior">&#10094;</button>
+        <div class="images">
+          <img src="./img/porta joias 1.jpeg" class="active" data-name="Porta joias" alt="Porta-joias personalizado">
+          <img src="./img/porta caneta nome simples.jpeg" data-name="Porta caneta" alt="Porta-caneta personalizado com nome" loading="lazy">
+          <img src="./img/porta caneta simples2.jpeg" data-name="Porta caneta" alt="Porta-caneta personalizado" loading="lazy">
+          <img src="./img/porta caneta (expresso caipira).jpeg" data-name="Porta caneta" alt="Porta-caneta personalizado" loading="lazy">
+          <img src="./img/porta bucha bob esponja.jpeg" data-name="Suporte bucha" alt="Suporte para bucha tema Bob Esponja" loading="lazy">
+        </div>
 
-<div class="images">
-<img src="./img/porta joias 1.jpeg" class="active" data-name="Porta joias" alt="Porta joias">
-<img src="./img/porta caneta nome simples.jpeg" data-name="porta caneta simples" alt="porta caneta simples">
-<img src="./img/porta caneta simples2.jpeg" data-name="porta caneta simples" alt="porta caneta simples">
-<img src="./img/porta caneta (expresso caipira).jpeg" data-name="porta caneta simples" alt="porta caneta simples">
-<img src="./img/porta bucha bob esponja.jpeg" data-name="suporte pra bucha" alt="suporte pra bucha">
-</div>
+        <button class="next" aria-label="Próxima imagem">&#10095;</button>
+      </div>
 
-<button class="next" aria-label="Próxima imagem">&#10095;</button>
-</div>
+      <h3>Peças personalizadas</h3>
+      <p>Não encontrou o que procura? Envie sua ideia! Criamos projetos personalizados em impressão 3D e fazemos seu orçamento.</p>
 
+      <a class="btn whatsapp btn-orcamento" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767">
+        Solicitar orçamento
+      </a>
 
-<h3>Peças personalizadas</h3>
-<p>Não encontrou o que procura? Envie sua ideia! Criamos projetos personalizados em impressão 3D e fazemos seu orçamento.</p>
+    </div>
 
-<a 
-  class="btn whatsapp btn-orcamento"
-  target="_blank"
-  href="https://wa.me/5562995616767">
-  Solicitar orçamento
-</a>
+    <!-- CARD 6: Categoria 1 (novo — aguardando fotos) -->
+    <div class="card card-placeholder">
+      <div class="carousel">
+        <div class="placeholder-slide">
+          <span class="placeholder-number">1</span>
+          <span class="placeholder-label">Fotos em breve</span>
+        </div>
+      </div>
 
-</div>
+      <h3>Categoria 1</h3>
+      <p>Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.</p>
 
-</div>
+      <a class="btn whatsapp btn-orcamento" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767">
+        Solicitar orçamento
+      </a>
+    </div>
+
+    <!-- CARD 7: Categoria 2 (novo — aguardando fotos) -->
+    <div class="card card-placeholder">
+      <div class="carousel">
+        <div class="placeholder-slide">
+          <span class="placeholder-number">2</span>
+          <span class="placeholder-label">Fotos em breve</span>
+        </div>
+      </div>
+
+      <h3>Categoria 2</h3>
+      <p>Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.</p>
+
+      <a class="btn whatsapp btn-orcamento" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767">
+        Solicitar orçamento
+      </a>
+    </div>
+
+    <!-- CARD 8: Categoria 3 (novo — aguardando fotos) -->
+    <div class="card card-placeholder">
+      <div class="carousel">
+        <div class="placeholder-slide">
+          <span class="placeholder-number">3</span>
+          <span class="placeholder-label">Fotos em breve</span>
+        </div>
+      </div>
+
+      <h3>Categoria 3</h3>
+      <p>Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.</p>
+
+      <a class="btn whatsapp btn-orcamento" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767">
+        Solicitar orçamento
+      </a>
+    </div>
+
+    <!-- CARD 9: Categoria 4 (novo — aguardando fotos) -->
+    <div class="card card-placeholder">
+      <div class="carousel">
+        <div class="placeholder-slide">
+          <span class="placeholder-number">4</span>
+          <span class="placeholder-label">Fotos em breve</span>
+        </div>
+      </div>
+
+      <h3>Categoria 4</h3>
+      <p>Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.</p>
+
+      <a class="btn whatsapp btn-orcamento" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767">
+        Solicitar orçamento
+      </a>
+    </div>
+
+    <!-- CARD 10: Categoria 5 (novo — aguardando fotos) -->
+    <div class="card card-placeholder">
+      <div class="carousel">
+        <div class="placeholder-slide">
+          <span class="placeholder-number">5</span>
+          <span class="placeholder-label">Fotos em breve</span>
+        </div>
+      </div>
+
+      <h3>Categoria 5</h3>
+      <p>Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.</p>
+
+      <a class="btn whatsapp btn-orcamento" target="_blank" rel="noopener noreferrer"
+        href="https://wa.me/5562995616767">
+        Solicitar orçamento
+      </a>
+    </div>
+
+  </div>
 
 </section>
 
 <section class="shopee">
 
-<h2>Compre pela Shopee</h2>
+  <h2>Compre pela Shopee</h2>
+  <p>Acesse nossa loja e confira todos os produtos disponíveis.</p>
 
-<p>
-Acesse nossa loja e confira todos os produtos disponíveis.
-</p>
-
-<a href="https://shopee.com.br/duduethata3d?entryPoint=ShopBySearch&searchKeyword=duduethata3d" target="_blank" class="btn-shopee">
-Ir para Shopee
-</a>
+  <a href="https://shopee.com.br/duduethata3d?entryPoint=ShopBySearch&searchKeyword=duduethata3d" target="_blank" rel="noopener noreferrer" class="btn-shopee">
+    Ir para Shopee
+  </a>
 
 </section>
 
 <section id="sobre">
 
-<h2 class="titulo">Sobre Nós</h2>
+  <h2 class="titulo">Sobre Nós</h2>
 
-<p class="texto">
-A Dudu&thata3D nasceu do sonho de empreender e criar uma marca que representasse a nossa família. Depois de diversas experiências no empreendedorismo, encontramos na impressão 3D a oportunidade de transformar criatividade em produtos únicos.
+  <p class="texto">
+    A Dudu & Thata 3D nasceu do sonho de empreender e criar uma marca que representasse a nossa família.
+    Depois de diversas experiências no empreendedorismo, encontramos na impressão 3D a oportunidade de
+    transformar criatividade em produtos únicos.
+  </p>
 
-O nome da empresa tem um significado muito especial: Dudu é o apelido do nosso filho Alerrandro, dado pela irmã quando ela ainda era bebê. Nossa filha Thaemy é carinhosamente chamada de Thata, e foi dessa história que surgiu a Dudu&thata3D.
+  <p class="texto">
+    O nome da empresa tem um significado muito especial: Dudu é o apelido do nosso filho Alerrandro, dado
+    pela irmã quando ela ainda era bebê. Nossa filha Thaemy é carinhosamente chamada de Thata, e foi dessa
+    história que surgiu a Dudu & Thata 3D.
+  </p>
 
-Hoje, produzimos peças personalizadas em impressão 3D, como chaveiros, bonecos, placas, itens de decoração, porta-latas e muitos outros produtos exclusivos. Cada peça é feita com dedicação, qualidade e carinho, transformando ideias em realidade.
-</p>
+  <p class="texto">
+    Hoje, produzimos peças personalizadas em impressão 3D, como chaveiros, bonecos, placas, itens de decoração,
+    porta-latas e muitos outros produtos exclusivos. Cada peça é feita com dedicação, qualidade e carinho,
+    transformando ideias em realidade.
+  </p>
 
 </section>
 
 <section id="contato">
 
-<h2 class="titulo">Contato</h2>
+  <h2 class="titulo">Contato</h2>
 
-<div class="contato-box">
+  <div class="contato-box">
+    <p>📱 WhatsApp: <a href="https://wa.me/5562995616767" rel="noopener noreferrer" target="_blank">(62) 99561-6767</a></p>
+    <p>📷 Instagram: <a href="https://www.instagram.com/duduethata3d" target="_blank" rel="noopener noreferrer">@duduethata3d</a></p>
 
-<p>📱 WhatsApp: (62) 99561-6767</p>
-
-<p>📷 Instagram: @duduethata3d</p>
-
-<a href="https://wa.me/5562995616767" class="btn whatsapp">
-Falar Agora
-</a>
-
-</div>
+    <a href="https://wa.me/5562995616767" class="btn whatsapp" target="_blank" rel="noopener noreferrer">Falar Agora</a>
+  </div>
 
 </section>
 
+</main>
+
 <footer>
-
-<p>© 2025 Dudu & Thata 3D</p>
-
+  <p>© 2025 Dudu & Thata 3D. Todos os direitos reservados.</p>
 </footer>
 
 <script src="script.js"></script>

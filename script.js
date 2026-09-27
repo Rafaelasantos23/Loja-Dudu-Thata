@@ -1,140 +1,890 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const SEU_NUMERO_WHATSAPP = "62995616767"; // Coloque seu número aqui
+:root {
+  /* Paleta da marca — violeta herdado + coral (ecoa a Shopee) + verde-água de interação */
+  --paper: #F5F3EE;
+  --ink: #201B2E;
 
-  // ==========================================
-  // 1. CARROSSÉIS (ROTAÇÃO E NAVEGAÇÃO)
-  // ==========================================
-  const carousels = document.querySelectorAll(".carousel");
+  --violet: #5B4FFF;
+  --violet-deep: #362C8C;
+  --coral: #FF5A36;
+  --teal: #00B8A9;
 
-  carousels.forEach((carousel) => {
-    const images = carousel.querySelectorAll(".images img");
-    const nextBtn = carousel.querySelector(".next");
-    const prevBtn = carousel.querySelector(".prev");
+  --white: #FFFFFF;
+  --whatsapp: #25D366;
 
-    if (!images.length) return;
+  --shadow: 0 10px 30px rgba(32, 27, 46, .12);
+  --radius: 20px;
+  --transition: .3s ease;
 
-    let currentIndex = 0;
-    let autoplayInterval = null;
+  --font-display: 'Baloo 2', 'Poppins', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+}
 
-    const updateCarousel = (index) => {
-      currentIndex = (index + images.length) % images.length;
-      images.forEach((img, idx) => {
-        img.classList.toggle("active", idx === currentIndex);
-      });
-    };
+/* RESET */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    const nextSlide = () => updateCarousel(currentIndex + 1);
-    const prevSlide = () => updateCarousel(currentIndex - 1);
+html {
+  scroll-behavior: smooth;
+}
 
-    const startAutoplay = () => {
-      stopAutoplay();
-      autoplayInterval = setInterval(nextSlide, 3000);
-    };
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
 
-    const stopAutoplay = () => {
-      if (autoplayInterval) clearInterval(autoplayInterval);
-    };
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}
 
-    if (nextBtn) {
-      nextBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        nextSlide();
-        startAutoplay();
-      });
-    }
+/* EYEBROW — rótulo de identidade, usado em todas as seções */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 
-    if (prevBtn) {
-      prevBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        prevSlide();
-        startAutoplay();
-      });
-    }
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
 
-    carousel.addEventListener("mouseenter", stopAutoplay);
-    carousel.addEventListener("mouseleave", startAutoplay);
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--violet), var(--coral));
+}
 
-    updateCarousel(currentIndex);
-    startAutoplay();
-  });
+.eyebrow-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
 
-  // ==========================================
-  // 2. MODAL DE ZOOM DA IMAGEM (AMPLIAR FOTO)
-  // ==========================================
-  const modal = document.getElementById("image-modal");
-  const modalImg = document.getElementById("modal-img");
-  const closeModal = document.querySelector(".close-modal");
-  const allCarouselImages = document.querySelectorAll(".images img");
+/* HEADER */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 12px 8%;
 
-  // Abre o modal ao clicar em qualquer foto do carrossel
-  allCarouselImages.forEach((img) => {
-    img.addEventListener("click", () => {
-      if (modal && modalImg) {
-        modal.style.display = "flex";
-        modalImg.src = img.src;
-        modalImg.alt = img.alt || "Foto ampliada";
-      }
-    });
-  });
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  // Fecha o modal no botão 'X'
-  if (closeModal) {
-    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
+  background: rgba(245, 243, 238, .78);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+
+  box-shadow: 0 5px 20px rgba(32, 27, 46, .06);
+  z-index: 1000;
+}
+
+.logo img {
+  height: 90px;
+  transition: var(--transition);
+}
+
+.logo img:hover {
+  transform: scale(1.08);
+}
+
+/* MENU */
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 3px;
+
+  background: var(--teal);
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+nav a:hover::after,
+nav a:focus-visible::after {
+  width: 100%;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 20px 60px;
+  overflow: hidden;
+
+  background: linear-gradient(180deg, var(--ink) 0%, var(--violet-deep) 100%);
+}
+
+/* Assinatura visual: pilha de "camadas" subindo, como uma impressão 3D em construção */
+.layers {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 40px;
+  opacity: .55;
+  pointer-events: none;
+}
+
+.layers span {
+  display: block;
+  width: var(--w);
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--violet), var(--coral));
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: layerGrow .7s ease forwards;
+}
+
+.layers span:nth-child(1) {
+  animation-delay: .9s;
+}
+
+.layers span:nth-child(2) {
+  animation-delay: .8s;
+}
+
+.layers span:nth-child(3) {
+  animation-delay: .7s;
+}
+
+.layers span:nth-child(4) {
+  animation-delay: .6s;
+}
+
+.layers span:nth-child(5) {
+  animation-delay: .5s;
+}
+
+.layers span:nth-child(6) {
+  animation-delay: .4s;
+}
+
+.layers span:nth-child(7) {
+  animation-delay: .3s;
+}
+
+.layers span:nth-child(8) {
+  animation-delay: .2s;
+}
+
+@keyframes layerGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+}
+
+.hero .eyebrow {
+  color: var(--coral);
+  margin-bottom: 18px;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -.01em;
+  color: var(--white);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, .85);
+}
+
+/* BOTÕES */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--white);
+  color: var(--violet-deep);
+
+  padding: 14px 38px;
+  border-radius: 999px;
+
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+
+  transition: var(--transition);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
+}
+
+.whatsapp {
+  background: var(--whatsapp);
+  color: var(--white);
+}
+
+.whatsapp:hover,
+.whatsapp:focus-visible {
+  background: #20bd5a;
+}
+
+/* SEÇÕES */
+section {
+  padding: 100px 8%;
+}
+
+.titulo {
+  font-family: var(--font-display);
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+/* PRODUTOS */
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+/* Faixa de "camadas" no topo do card — assinatura repetida da marca */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg,
+      var(--violet) 0 24px,
+      var(--coral) 24px 48px);
+  z-index: 2;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(91, 79, 255, .22);
+}
+
+/* CARROSSEL */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.images img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: none;
+  transition: transform .35s ease;
+  cursor: pointer;
+  /* Cursor de mãozinha indicando que a foto pode ser clicada */
+}
+
+.images img.active {
+  display: block;
+}
+
+.card:hover .images img.active {
+  transform: scale(1.05);
+}
+
+/* SETAS */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(32, 27, 46, .5);
+  color: var(--white);
+  font-size: 20px;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.prev:hover,
+.next:hover,
+.prev:focus-visible,
+.next:focus-visible {
+  background: var(--violet);
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+/* TEXTO CARD */
+.card h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  padding: 20px 15px 8px;
+}
+
+.card p {
+  padding: 0 15px 20px;
+  color: #6b6572;
+}
+
+/* ORÇAMENTO */
+.btn-orcamento {
+  display: block;
+  margin: 0 15px 20px;
+  padding: 13px;
+
+  background: linear-gradient(135deg, var(--violet), var(--violet-deep));
+  color: var(--white);
+
+  text-decoration: none;
+  border-radius: 999px;
+  text-align: center;
+  font-weight: 700;
+
+  transition: var(--transition);
+}
+
+.btn-orcamento:hover,
+.btn-orcamento:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(91, 79, 255, .35);
+}
+
+/* SHOPEE */
+.shopee {
+  text-align: center;
+  background: var(--white);
+}
+
+.shopee h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+}
+
+.shopee p {
+  margin-top: 12px;
+  color: #6b6572;
+}
+
+.btn-shopee {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 40px;
+
+  background: #ee4d2d;
+  color: var(--white);
+
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 700;
+
+  transition: var(--transition);
+}
+
+.btn-shopee:hover,
+.btn-shopee:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(238, 77, 45, .35);
+}
+
+/* SOBRE */
+.texto {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 2;
+  color: #4a4552;
+}
+
+/* CONTATO */
+.contato-box {
+  text-align: center;
+}
+
+.contato-box p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: var(--white);
+  text-align: center;
+  padding: 30px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+/* ==========================================================================
+   MODAL DE ZOOM DA IMAGEM (NOVO)
+   ========================================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: zoomIn 0.25s ease;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 2001;
+  background: transparent;
+  border: none;
+}
+
+.close-modal:hover {
+  color: var(--coral);
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
   }
 
-  // Fecha o modal ao clicar no fundo escuro
-  if (modal) {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    });
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 5%;
   }
 
-  // ==========================================
-  // 3. ENVIAR PARA O WHATSAPP
-  // ==========================================
-  const btnsOrcamento = document.querySelectorAll(".btn-orcamento");
+  .logo img {
+    height: 70px;
+  }
 
-  btnsOrcamento.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    font-size: 14px;
+  }
 
-      const card = btn.closest(".card");
-      const nomeProduto = card.getAttribute("data-nome") || card.querySelector("h3")?.innerText || "Produto";
-      const imagemAtiva = card.querySelector(".images img.active");
-      const urlImagem = imagemAtiva ? imagemAtiva.src : "";
+  .hero {
+    min-height: auto;
+    padding-top: 180px;
+  }
 
-      const mensagem = `Olá! Gostaria de solicitar um orçamento para o seguinte produto:\n\n` +
-                       `📌 *Produto:* ${nomeProduto}\n` +
-                       `🖼️ *Foto do modelo selecionado:* ${urlImagem}`;
+  .hero p {
+    font-size: 1rem;
+  }
 
-      const linkWhatsApp = `https://wa.me/${62995616767}?text=${encodeURIComponent(mensagem)}`;
-      window.open(linkWhatsApp, "_blank");
-    });
-  });
-});
+  .buttons {
+    flex-direction: column;
+  }
 
-//menu media700
-const menuBtn = document.getElementById("menu-btn");
-const nav = document.querySelector("nav");
+  .btn {
+    width: 100%;
+  }
 
-menuBtn.addEventListener("click", () => {
-  nav.classList.toggle("ativo");
-  menuBtn.classList.toggle("ativo");
-});
+  section {
+    padding: 70px 5%;
+  }
+
+  .produtos {
+    grid-template-columns: 1fr;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .images img {
+    height: 230px;
+  }
+
+  .prev,
+  .next {
+    width: 35px;
+    height: 35px;
+  }
+
+  .titulo {
+    font-size: 2rem;
+  }
+
+  .texto {
+    font-size: 1rem;
+  }
+
+  .btn-orcamento {
+    width: calc(100% - 30px);
+  }
+
+  .layers {
+    padding-bottom: 20px;
+    gap: 7px;
+  }
+
+  .layers span {
+    height: 7px;
+  }
+}
+
+/* ACESSIBILIDADE: respeita preferência de menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .layers span {
+    animation: none;
+    transform: scaleX(1);
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*rolagem suave html*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+
+.menu-btn {
+  display: block;
+  width: 40px;
+  height: 35px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1002;
+  margin-left: auto;
+}
+
+  .menu-btn span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px auto;
+    background: #333;
+    border-radius: 5px;
+    transition: .3s ease;
+  }
 
 
-//diminuir quando clicar
-const linksMenu = document.querySelectorAll("nav a");
+  nav {
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    width: 220px;
 
-linksMenu.forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("ativo");
-    menuBtn.classList.remove("ativo");
-  });
-});
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+
+    transform: scale(0);
+    transform-origin: top right;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: .3s ease;
+  }
+
+
+  nav.ativo {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+  }
+
+
+  nav li {
+    list-style: none;
+  }
+
+
+  nav a {
+    display: block;
+    padding: 10px;
+  }
+
+}
+
+
+/* animação do botão menu virar X */
+.menu-btn.ativo span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-btn.ativo span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.ativo span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   INDICADORES NUMERADOS DO CARROSSEL — "1 2 3 4 5" (NOVO)
+   Substituem/complementam as setas para navegação rápida e dão um ar
+   mais profissional/padrão de e-commerce.
+   ========================================================================== */
+.carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  z-index: 3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 0 54px;
+}
+
+.carousel-dot {
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  border-radius: 999px;
+  border: none;
+
+  background: rgba(32, 27, 46, .45);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1;
+
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  transition: var(--transition);
+}
+
+.carousel-dot:hover,
+.carousel-dot:focus-visible {
+  background: rgba(32, 27, 46, .7);
+}
+
+.carousel-dot.active {
+  background: var(--coral);
+  transform: scale(1.12);
+}
+
+/* Contador "3/12" no canto — reforça o padrão numerado em telas pequenas */
+.carousel-count {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+
+  background: rgba(32, 27, 46, .55);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: .7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 768px) {
+  .carousel-dots {
+    padding: 0 42px;
+    bottom: 8px;
+    gap: 6px;
+  }
+
+  .carousel-dot {
+    min-width: 22px;
+    height: 22px;
+    font-size: .66rem;
+  }
+
+  .carousel-count {
+    font-size: .64rem;
+    padding: 3px 8px;
+  }
+}
+
+/* ==========================================================================
+   CARDS "EM BREVE" — para as novas categorias sem fotos ainda (NOVO)
+   Basta trocar este bloco pelo mesmo padrão de carrossel com fotos
+   assim que as imagens da categoria estiverem prontas.
+   ========================================================================== */
+.placeholder-slide {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: linear-gradient(135deg, var(--violet) 0%, var(--violet-deep) 60%, var(--ink) 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.placeholder-number {
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.placeholder-slide span.placeholder-label {
+  font-family: var(--font-body);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: rgba(255, 255, 255, .78);
+}
+
+.card-placeholder {
+  opacity: .95;
+}
+
+.card-placeholder::before {
+  background: repeating-linear-gradient(90deg,
+      var(--teal) 0 24px,
+      var(--coral) 24px 48px);
+}
+
+@media (max-width: 768px) {
+  .placeholder-slide {
+    height: 230px;
+  }
+
+  .placeholder-number {
+    font-size: 2.6rem;
+  }
+}
 
 
