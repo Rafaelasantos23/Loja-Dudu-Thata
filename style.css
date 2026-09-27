@@ -310,20 +310,6 @@ section {
   transition: transform .35s ease, box-shadow .35s ease;
 }
 
-/* Faixa de "camadas" no topo do card — assinatura repetida da marca */
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: repeating-linear-gradient(90deg,
-      var(--violet) 0 24px,
-      var(--coral) 24px 48px);
-  z-index: 2;
-}
-
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 45px rgba(91, 79, 255, .22);
@@ -601,10 +587,6 @@ footer {
 
   .card {
     border-radius: 14px;
-  }
-
-  .card::before {
-    height: 4px;
   }
 
   .card:hover {
@@ -915,12 +897,6 @@ html {
 
 .card-placeholder {
   opacity: .95;
-}
-
-.card-placeholder::before {
-  background: repeating-linear-gradient(90deg,
-      var(--teal) 0 24px,
-      var(--coral) 24px 48px);
 }
 
 @media (max-width: 768px) {
