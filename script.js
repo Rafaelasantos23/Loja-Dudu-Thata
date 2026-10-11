@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const SEU_NUMERO_WHATSAPP = "62995616767"; // Coloque seu número aqui
+
+  // Número com código do país (55) + DDD + número. Vem do produtos.js.
+  // Sem o 55, o WhatsApp abria um número da Indonésia (código 62).
+  const SEU_NUMERO_WHATSAPP = typeof WHATSAPP !== "undefined" ? WHATSAPP : "5562995616767";
+
+  // Quem tem "reduzir movimento" ligado no celular/PC não recebe troca automática de fotos
+  const reduzMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ==========================================
   // 1. CARROSSÉIS (ROTAÇÃO, INDICADORES NUMERADOS E SWIPE)
@@ -56,6 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
         Array.from(dotsWrap.children).forEach((dot, idx) => {
           dot.classList.toggle("active", idx === currentIndex);
         });
+
+        // Mantém o número ativo visível na faixa (importante quando há 20+ fotos)
+        const dotAtivo = dotsWrap.children[currentIndex];
+        const caixa = dotsWrap.getBoundingClientRect();
+        const pos = dotAtivo.getBoundingClientRect();
+        dotsWrap.scrollTo({
+          left: dotsWrap.scrollLeft + (pos.left - caixa.left) - caixa.width / 2 + pos.width / 2,
+          behavior: "smooth"
+        });
       }
       if (countBadge) {
         countBadge.textContent = `${currentIndex + 1}/${images.length}`;
@@ -65,13 +80,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextSlide = () => updateCarousel(currentIndex + 1);
     const prevSlide = () => updateCarousel(currentIndex - 1);
 
-    const startAutoplay = () => {
-      stopAutoplay();
-      autoplayInterval = setInterval(nextSlide, 3000);
-    };
-
     const stopAutoplay = () => {
       if (autoplayInterval) clearInterval(autoplayInterval);
+      autoplayInterval = null;
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (reduzMovimento) return;
+      autoplayInterval = setInterval(nextSlide, 3000);
     };
 
     if (nextBtn) {
@@ -117,7 +134,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     updateCarousel(currentIndex);
-    startAutoplay();
+
+    // Só troca as fotos sozinho enquanto o carrossel está visível na tela.
+    // Antes, os 10 carrosséis giravam o tempo todo, mesmo fora da tela.
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entradas) => {
+        entradas.forEach((entrada) => {
+          if (entrada.isIntersecting) startAutoplay();
+          else stopAutoplay();
+        });
+      }, { threshold: 0.3 });
+      observer.observe(carousel);
+    } else {
+      startAutoplay();
+    }
   });
 
   // ==========================================
@@ -176,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
 
       const card = btn.closest(".card");
-      const nomeProduto = card.getAttribute("data-nome") || card.querySelector("h3")?.innerText || "Produto";
+      const nomeProduto = card.querySelector("h3")?.innerText || "Produto";
       const imagemAtiva = card.querySelector(".images img.active");
       const urlImagem = imagemAtiva ? imagemAtiva.src : "";
 
@@ -191,36 +221,36 @@ document.addEventListener("DOMContentLoaded", () => {
       window.open(linkWhatsApp, "_blank");
     });
   });
-});
 
-//menu media700
-const menuBtn = document.getElementById("menu-btn");
-const nav = document.querySelector("nav");
+  // ==========================================
+  // 4. MENU DO CELULAR (hambúrguer)
+  // ==========================================
+  const menuBtn = document.getElementById("menu-btn");
+  const nav = document.querySelector("nav");
 
-if (menuBtn && nav) {
-  menuBtn.addEventListener("click", () => {
-    const aberto = nav.classList.toggle("ativo");
-    menuBtn.classList.toggle("ativo", aberto);
-    menuBtn.setAttribute("aria-expanded", aberto ? "true" : "false");
-  });
+  if (menuBtn && nav) {
+    const fecharMenu = () => {
+      nav.classList.remove("ativo");
+      menuBtn.classList.remove("ativo");
+      menuBtn.setAttribute("aria-expanded", "false");
+    };
 
-  // Fecha o menu ao clicar fora dele
-  document.addEventListener("click", (e) => {
-    if (!nav.classList.contains("ativo")) return;
-    if (nav.contains(e.target) || menuBtn.contains(e.target)) return;
-    nav.classList.remove("ativo");
-    menuBtn.classList.remove("ativo");
-    menuBtn.setAttribute("aria-expanded", "false");
-  });
-}
+    menuBtn.addEventListener("click", () => {
+      const aberto = nav.classList.toggle("ativo");
+      menuBtn.classList.toggle("ativo", aberto);
+      menuBtn.setAttribute("aria-expanded", aberto ? "true" : "false");
+    });
 
-//diminuir quando clicar
-const linksMenu = document.querySelectorAll("nav a");
+    // Fecha o menu ao clicar fora dele
+    document.addEventListener("click", (e) => {
+      if (!nav.classList.contains("ativo")) return;
+      if (nav.contains(e.target) || menuBtn.contains(e.target)) return;
+      fecharMenu();
+    });
 
-linksMenu.forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("ativo");
-    menuBtn.classList.remove("ativo");
-    if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
-  });
+    // Fecha o menu ao clicar em um link
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", fecharMenu);
+    });
+  }
 });

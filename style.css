@@ -959,3 +959,35 @@ html {
     font-size: .68rem;
   }
 }
+
+/* Logo: o HTML define width="120" e o CSS height de 90px, o que esticava a
+   imagem. width:auto mantém a proporção original. */
+.logo img {
+  width: auto;
+}
+
+/* Ao clicar no menu, o título da seção não fica escondido atrás do
+   cabeçalho fixo. */
+html {
+  scroll-padding-top: 120px;
+}
+
+/* O botão hambúrguer só aparece no celular (antes aparecia vazio no PC). */
+@media (min-width: 769px) {
+  .menu-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Logo e hambúrguer lado a lado (antes ficavam um embaixo do outro) */
+  header {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  /* O menu abre logo abaixo do cabeçalho, sem cobrir o logo */
+  nav {
+    top: calc(100% + 8px);
+  }
+}
