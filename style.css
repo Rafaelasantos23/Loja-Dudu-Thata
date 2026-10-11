@@ -991,3 +991,10 @@ html {
     top: calc(100% + 8px);
   }
 }
+/* Cards com tamanho fixo no computador: a busca não estica mais o card */
+@media (min-width: 769px) {
+  .produtos {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 340px));
+    justify-content: center;
+  }
+}
