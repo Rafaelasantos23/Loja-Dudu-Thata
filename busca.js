@@ -5,6 +5,10 @@
 // =====================================================================
 
 (function () {
+  // Trava: não cria a barra duas vezes se o arquivo for carregado em duplicidade
+  if (window.buscaIniciada) return;
+  window.buscaIniciada = true;
+
   const produtos = document.getElementById("produtos");
   if (!produtos) return;
 
@@ -16,10 +20,10 @@
     .busca { max-width: 560px; margin: 0 auto 40px; text-align: center; }
     .busca input {
       width: 100%;
-      padding: 14px 22px;
+      padding: 14px 22px 14px 54px;
       border: 2px solid transparent;
       border-radius: 999px;
-      background: var(--white);
+      background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%235B4FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3'/%3E%3C/svg%3E") no-repeat 22px center / 20px;
       box-shadow: var(--shadow);
       font: inherit;
       font-size: 1rem;
@@ -31,7 +35,7 @@
     .busca-vazia a { color: var(--violet-deep); font-weight: 700; }
     @media (max-width: 768px) {
       .busca { margin-bottom: 24px; }
-      .busca input { padding: 12px 18px; font-size: .95rem; }
+      .busca input { padding: 12px 18px 12px 48px; font-size: .95rem; background-position: 18px center; }
     }
   `;
   document.head.appendChild(estilo);
@@ -41,7 +45,7 @@
   const caixa = document.createElement("div");
   caixa.className = "busca";
   caixa.innerHTML = `
-    <input type="search" id="campo-busca" placeholder="🔍 Pesquisar produtos (ex.: chaveiro, time, capivara)"
+    <input type="search" id="campo-busca" placeholder="Pesquisar produtos (ex.: chaveiro, time, capivara)"
            aria-label="Pesquisar produtos" autocomplete="off">
     <p class="busca-vazia" id="busca-vazia" style="display:none">
       Não encontramos esse produto no catálogo.

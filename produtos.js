@@ -33,6 +33,25 @@ const categorias = [
         palavras: "chaveiro chaveiros letra nome logo time futebol flor capivara signo aries academia barbearia ferragista camera ursinho taca brasil bloco personalizado",
         descricao: "Chaveiros prontos e personalizados para sua marca, empresa ou ideia. Peça seu orçamento!",
         imagens: [
+            "chaveiro1.jpeg",
+            "chaveiro2.jpeg",
+            "chaveiro3.jpeg",
+            "chaveiro4.jpeg",
+            "chaveiro5.jpeg",
+            "chaveiro6.jpeg",
+            "chaveiro7.jpeg",
+            "chaveiro8.jpeg",
+            "chaveiro9.jpeg",
+            "chaveiro10.jpeg",
+            "chaveiro11.jpeg",
+            "chaveiro12.jpeg",
+            "chaveiro13.jpeg",
+            "chaveiro14.jpeg",
+            "chaveiro15.jpeg",
+            "chaveiro16.jpeg",
+            "chaveiro17.jpeg",
+            "chaveiro18.jpeg",
+            "chaveiro19.jpeg",
             "imsualogo.png",
             "imgletra.png",
             "imgjhon.png",
@@ -105,7 +124,9 @@ const categorias = [
             "boneco hulk.png",
             "boneco patolino.png",
             "boneco bart.png",
-            "boneco corinthias.png"
+            "boneco corinthias.png",
+            "miniaturatime1.jpeg",
+            "miniaturatime2.jpeg",
         ]
     },
     {
@@ -130,11 +151,18 @@ const categorias = [
             "placa nfc4.jpeg",
             "placa nfc5.jpeg",
             "placa nfc6.jpeg",
+            "placa nfc1.jpeg",
             "placa nfc7.jpeg",
             "placa nfc8.jpeg",
             "placa nfc9.jpeg",
             "placa nfc10.jpeg",
-        
+            "placa nfc11.jpeg",
+            "placa nfc12.jpeg",
+            "placa nfc13.jpeg",
+            "placa nfc14.jpeg",
+            "placa nfc15.jpeg",
+
+
         ]
     },
     {
@@ -153,7 +181,8 @@ const categorias = [
             "microfone10.jpeg",
             "microfone11.jpeg",
             "microfone12.jpeg",
-            
+            "microfone13.jpeg"
+
         ]
     },
     {
@@ -161,14 +190,29 @@ const categorias = [
         descricao: "Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.",
         imagens: [
             "porta joias 1.jpeg",
+            "portajoia1.jpeg",
+            "portajoia2.jpeg",
+            "portajoia3.jpeg",
+            "portajoia4.jpeg",
+            "portajoia5.jpeg",
+            "portajoia6.jpeg",
+            "portajoia7.jpeg",
+            "portajoia8.jpeg",
+            "portajoia9.jpeg",
+            "portajoia10.jpeg",
+            "portajoia11.jpeg",
+            "portajoia12.jpeg",
+            "portajoia13.jpeg",
+            "portajoia14.jpeg",
+            "portajoia15.jpeg",
+            "portajoia16.jpeg",
+            "portajoia17.jpeg",
         
-        
-        
-        
+
         ]
     },
     {
-        titulo: "Categoria 4",
+        titulo: "Suportes - telefone - play game",
         descricao: "Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.",
         imagens: []
     },

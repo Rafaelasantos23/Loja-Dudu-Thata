@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Número com código do país (55) + DDD + número. Vem do produtos.js.
-  // Sem o 55, o WhatsApp abria um número da Indonésia (código 62).
+ 
   const SEU_NUMERO_WHATSAPP = typeof WHATSAPP !== "undefined" ? WHATSAPP : "5562995616767";
 
-  // Quem tem "reduzir movimento" ligado no celular/PC não recebe troca automática de fotos
+  // "reduzir movimento" ligado no celular/PC não recebe troca automática de fotos
   const reduzMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ==========================================
@@ -18,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = carousel.querySelector(".next");
     const prevBtn = carousel.querySelector(".prev");
 
-    if (!images.length) return; // carrossel "em breve" sem fotos ainda
+    if (!images.length) return; 
 
     let currentIndex = 0;
     let autoplayInterval = null;
