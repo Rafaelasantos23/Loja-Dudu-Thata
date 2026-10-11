@@ -125,9 +125,14 @@ const categorias = [
   // Quando tiver as fotos, troque o título/descrição, preencha a lista
   // e (opcional) acrescente palavras: "palavra1 palavra2" para ajudar na pesquisa.
   {
-    titulo: "Categoria 1",
-    descricao: "Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.",
-    imagens: []
+    titulo: "Para o seu Negocio",
+    palavras: "praticidade dia dia negocio placa nfc",
+    descricao: "Placas NFC para facilitar seu dia dia",
+    imagens: [
+    "placa nfc1.jpeg",
+    "placa nfc2.jpeg",
+
+    ]
   },
   {
     titulo: "Categoria 2",
