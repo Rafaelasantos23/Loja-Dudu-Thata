@@ -5,12 +5,32 @@
 // e troque o título, a descrição e as fotos.
 // =====================================================================
 
+// =====================================================================
+// PARTE 1 — AQUI VOCÊ EDITA
+// Para adicionar uma foto: coloque o nome do arquivo na lista "imagens".
+// Para adicionar uma categoria nova: copie um bloco { ... }, cole abaixo
+// e troque o título, a descrição e as fotos.
+// =====================================================================
+
 const PASTA_IMAGENS = "./img/";
 const WHATSAPP = "5562995616767";
+
+// ATALHO PARA MUITAS FOTOS: se as fotos tiverem nomes numerados
+// (decoracao-1.jpg, decoracao-2.jpg ...), em vez de escrever uma por uma use:
+//   imagens: gerarFotos("decoracao-", 12, ".jpg")
+// Isso cria decoracao-1.jpg até decoracao-12.jpg. Para somar uma foto, aumente o número.
+function gerarFotos(prefixo, quantidade, extensao) {
+  const lista = [];
+  for (let i = 1; i <= quantidade; i++) {
+    lista.push(prefixo + i + extensao);
+  }
+  return lista;
+}
 
 const categorias = [
   {
     titulo: "Chaveiros personalizados",
+    palavras: "chaveiro chaveiros letra nome logo time futebol flor capivara signo aries academia barbearia ferragista camera ursinho taca brasil bloco personalizado",
     descricao: "Chaveiros prontos e personalizados para sua marca, empresa ou ideia. Peça seu orçamento!",
     imagens: [
       "imsualogo.png",
@@ -39,6 +59,7 @@ const categorias = [
   },
   {
     titulo: "Brinquedos e Jogos",
+    palavras: "brinquedo brinquedos jogo jogos sensorial ovo dragao estrela cobra dado parafuso dino bailarina nuvem bola click antiestresse",
     descricao: "Brinquedos sensoriais 3D para estimular a criatividade, aliviar o estresse e trazer diversão para todas as idades. Qualidade, inovação e diversão em um só produto.",
     imagens: [
       "imgovodragao (1).jpeg",
@@ -59,6 +80,7 @@ const categorias = [
   },
   {
     titulo: "Porta Copo",
+    palavras: "porta copo suporte garrafa lata long neck time presente decoracao",
     descricao: "Suportes 3D personalizados com seu tema, time, marca ou nome. Ideais para presentes, coleções e decoração. Solicite seu orçamento!",
     imagens: [
       "suporte copo moster 3.jpeg",
@@ -72,6 +94,7 @@ const categorias = [
   },
   {
     titulo: "Miniaturas",
+    palavras: "miniatura miniaturas boneco bonecos personagem videogame mario hulk homem aranha patolino bart palhaco corinthians colecao",
     descricao: "Miniaturas 3D prontas e personalizadas de personagens, bonecos e projetos. Peças únicas com detalhes incríveis para colecionar, presentear ou decorar!",
     imagens: [
       "personagens videogame.jpeg",
@@ -87,6 +110,7 @@ const categorias = [
   },
   {
     titulo: "Peças personalizadas",
+    palavras: "peca pecas personalizada porta joias porta caneta bucha bob esponja organizador encomenda sob medida",
     descricao: "Não encontrou o que procura? Envie sua ideia! Criamos projetos personalizados em impressão 3D e fazemos seu orçamento.",
     imagens: [
       "porta joias 1.jpeg",
@@ -98,7 +122,8 @@ const categorias = [
   },
 
   // Categorias "em breve": lista de imagens vazia [] = card com "Fotos em breve".
-  // Quando tiver as fotos, troque o título/descrição e preencha a lista.
+  // Quando tiver as fotos, troque o título/descrição, preencha a lista
+  // e (opcional) acrescente palavras: "palavra1 palavra2" para ajudar na pesquisa.
   {
     titulo: "Categoria 1",
     descricao: "Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.",
@@ -127,10 +152,10 @@ const categorias = [
 ];
 
 
-// ====================================================================
+// =====================================================================
 // PARTE 2 — NÃO PRECISA MEXER
 // Lê a lista acima e monta os cards na página.
-// ====================================================================
+// =====================================================================
 
 const containerProdutos = document.getElementById("produtos");
 
@@ -170,7 +195,7 @@ if (containerProdutos) {
     }
 
     html += `
-      <div class="card${temFotos ? "" : " card-placeholder"}">
+      <div class="card${temFotos ? "" : " card-placeholder"}" data-busca="${categoria.palavras || ''}">
         ${carrossel}
         <h3>${categoria.titulo}</h3>
         <p>${categoria.descricao}</p>
