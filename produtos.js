@@ -115,7 +115,7 @@ const categorias = [
             "brinquedo18.jpeg",
             "brinquedo19.jpeg",
             "brinquedo20.jpeg",
-            
+
         ]
     },
     {
@@ -141,7 +141,7 @@ const categorias = [
             "copo9.jpeg",
             "copo10.jpeg",
             "copo11.jpeg",
-           
+
 
         ]
     },
@@ -193,7 +193,7 @@ const categorias = [
             "portacaneta20.jpeg",
             "portacaneta21.jpeg",
             "portacaneta22.jpeg",
-        
+
         ]
     },
 
@@ -229,8 +229,8 @@ const categorias = [
             "placa nfc23.jpeg",
             "placa nfc24.jpeg",
             "placa nfc25.jpeg",
-            
-            
+
+
 
 
 
@@ -255,7 +255,7 @@ const categorias = [
             "microfone13.jpeg",
             "microfone14.jpeg",
             "microfone15.jpeg",
-           
+
         ]
     },
     {
@@ -298,7 +298,19 @@ const categorias = [
             "suporte8.jpeg",
             "suporte9.jpeg",
             "suporte10.jpeg",
-    
+            "suportecel1.jpeg",
+            "suportecel2.jpeg",
+            "suportecel3.jpeg",
+            "suportecel4.jpeg",
+            "suportecel5.jpeg",
+            "suportecel6.jpeg",
+            "suportecel7.jpeg",
+            "suportecel8.jpeg",
+            "suportecel9.jpeg",
+            
+
+
+
         ]
     },
     {
