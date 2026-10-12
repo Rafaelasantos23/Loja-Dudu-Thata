@@ -298,32 +298,37 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // 3. ENVIAR PARA O WHATSAPP
   // ==========================================
-  const btnsOrcamento = document.querySelectorAll(".btn-orcamento");
-
-btnsOrcamento.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const card = btn.closest(".card");
-
-    const nomeProduto =
-      card.querySelector("h3")?.innerText.trim() || "Produto";
-
-    const imagemAtiva = card.querySelector(".images img.active");
-    const urlImagem = imagemAtiva ? imagemAtiva.src : "";
-
-    const mensagem =
-      `Olá! Gostaria de solicitar um orçamento.\n\n` +
-      `Produto: ${nomeProduto}\n` +
-      `Modelo selecionado: ${urlImagem ? "Sim" : "Não identificado"}\n\n` +
-      `Poderia me informar o valor e o prazo de produção?`;
-
-    const linkWhatsApp =
-      `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
-
-    window.open(linkWhatsApp, "_blank");
+ const btnsOrcamento = document.querySelectorAll(".btn-orcamento");
+ 
+  btnsOrcamento.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+ 
+      const card = btn.closest(".card");
+      const nomeProduto = card.querySelector("h3")?.innerText || "Produto";
+      const imagemAtiva = card.querySelector(".images img.active");
+      const todasFotos = Array.from(card.querySelectorAll(".images img"));
+      const numeroFoto = imagemAtiva ? todasFotos.indexOf(imagemAtiva) + 1 : 0;
+ 
+      // Parênteses no link atrapalham o WhatsApp: troca por versão segura
+      const urlImagem = imagemAtiva
+        ? imagemAtiva.src.replace(/\(/g, "%28").replace(/\)/g, "%29")
+        : "";
+ 
+      let mensagem =
+        `Olá! Gostaria de solicitar um orçamento para o seguinte produto:\n\n` +
+        `📌 *Produto:* ${nomeProduto}`;
+ 
+      if (urlImagem) {
+        mensagem +=
+          `\n🔢 *Modelo:* foto ${numeroFoto} de ${todasFotos.length}` +
+          `\n🖼️ *Foto escolhida:*\n${urlImagem}`;
+      }
+ 
+      const linkWhatsApp = `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+      window.open(linkWhatsApp, "_blank");
+    });
   });
-});
   // ==========================================
   // 4. MENU DO CELULAR (hambúrguer)
   // ==========================================
