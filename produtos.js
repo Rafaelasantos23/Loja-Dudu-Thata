@@ -325,6 +325,23 @@ const categorias = [
             "natal6.jpeg",
             "natal7.jpeg",
             "natal8.jpeg",
+            "natal9.jpeg",
+            "natal10.jpeg",
+            "natal11.jpeg",
+            "natal12.jpeg",
+            "natal13.jpeg",
+            "natal14.jpeg",
+            "natal15.jpeg",
+            "natal16.jpeg",
+            "natal17.jpeg",
+            "natal18.jpeg",
+            "natal19.jpeg",
+            "natal20.jpeg",
+            "natal21.jpeg",
+            "natal22.jpeg",
+            "natal23.jpeg",
+
+
         ]
     }
 ];
