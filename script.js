@@ -151,17 +151,92 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================================
   // 2. MODAL DE ZOOM DA IMAGEM (AMPLIAR FOTO)
+  //    Agora dá para passar as fotos com ela aberta:
+  //    arrastando o dedo, pelas setas ‹ › ou pelo teclado.
   // ==========================================
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-img");
   const closeModal = document.querySelector(".close-modal");
   const allCarouselImages = document.querySelectorAll(".images img");
 
+  let fotosModal = [];   // as fotos do carrossel que foi clicado
+  let indiceModal = 0;   // qual dessas fotos está aberta agora
+
+  // Setas e contador são criados aqui, então não precisa mexer no HTML
+  let btnModalAnterior = null;
+  let btnModalProximo = null;
+  let contadorModal = null;
+
+  if (modal && modalImg) {
+    btnModalAnterior = document.createElement("button");
+    btnModalAnterior.type = "button";
+    btnModalAnterior.className = "modal-nav modal-prev";
+    btnModalAnterior.setAttribute("aria-label", "Foto anterior");
+    btnModalAnterior.innerHTML = "&#10094;";
+
+    btnModalProximo = document.createElement("button");
+    btnModalProximo.type = "button";
+    btnModalProximo.className = "modal-nav modal-next";
+    btnModalProximo.setAttribute("aria-label", "Próxima foto");
+    btnModalProximo.innerHTML = "&#10095;";
+
+    contadorModal = document.createElement("span");
+    contadorModal.className = "modal-count";
+    contadorModal.setAttribute("aria-hidden", "true");
+
+    modal.appendChild(btnModalAnterior);
+    modal.appendChild(btnModalProximo);
+    modal.appendChild(contadorModal);
+
+    btnModalAnterior.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mostrarFotoModal(indiceModal - 1);
+    });
+    btnModalProximo.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mostrarFotoModal(indiceModal + 1);
+    });
+  }
+
+  // Mostra a foto de número "indice" dentro do modal
+  function mostrarFotoModal(indice) {
+    if (!modalImg || !fotosModal.length) return;
+
+    // O "+ length" e o "%" fazem a lista dar a volta (depois da última vem a primeira)
+    indiceModal = (indice + fotosModal.length) % fotosModal.length;
+
+    const foto = fotosModal[indiceModal];
+    modalImg.src = foto.src;
+    modalImg.alt = foto.alt || "Foto ampliada";
+
+    const varias = fotosModal.length > 1;
+    if (btnModalAnterior) btnModalAnterior.style.display = varias ? "" : "none";
+    if (btnModalProximo) btnModalProximo.style.display = varias ? "" : "none";
+    if (contadorModal) {
+      contadorModal.style.display = varias ? "" : "none";
+      contadorModal.textContent = `${indiceModal + 1}/${fotosModal.length}`;
+    }
+
+    // Já carrega a próxima e a anterior para a troca ser rápida
+    if (varias) {
+      [indiceModal + 1, indiceModal - 1].forEach((i) => {
+        const vizinha = fotosModal[(i + fotosModal.length) % fotosModal.length];
+        new Image().src = vizinha.src;
+      });
+    }
+  }
+
   const abrirModal = (img) => {
     if (!modal || !modalImg) return;
+
+    // Pega todas as fotos do carrossel onde a pessoa clicou
+    const carrossel = img.closest(".carousel");
+    fotosModal = carrossel
+      ? Array.from(carrossel.querySelectorAll(".images img"))
+      : [img];
+
     modal.style.display = "flex";
-    modalImg.src = img.src;
-    modalImg.alt = img.alt || "Foto ampliada";
+    mostrarFotoModal(fotosModal.indexOf(img));
     document.body.style.overflow = "hidden"; // trava o scroll de fundo no celular
   };
 
@@ -188,11 +263,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Fecha o modal com a tecla Esc
+  // Arrastar o dedo para o lado com a foto aberta (celular)
+  if (modal) {
+    let modalStartX = 0;
+    let modalStartY = 0;
+
+    modal.addEventListener("touchstart", (e) => {
+      modalStartX = e.touches[0].clientX;
+      modalStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    modal.addEventListener("touchend", (e) => {
+      const diffX = e.changedTouches[0].clientX - modalStartX;
+      const diffY = e.changedTouches[0].clientY - modalStartY;
+
+      // Só conta se o movimento foi mais para o lado do que para cima/baixo
+      if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+        diffX < 0
+          ? mostrarFotoModal(indiceModal + 1)
+          : mostrarFotoModal(indiceModal - 1);
+      }
+    }, { passive: true });
+  }
+
+  // Teclado: Esc fecha, setas ← → passam as fotos
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal && modal.style.display === "flex") {
-      fecharModal();
-    }
+    if (!modal || modal.style.display !== "flex") return;
+
+    if (e.key === "Escape") fecharModal();
+    else if (e.key === "ArrowRight") mostrarFotoModal(indiceModal + 1);
+    else if (e.key === "ArrowLeft") mostrarFotoModal(indiceModal - 1);
   });
 
   // ==========================================
@@ -200,27 +300,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   const btnsOrcamento = document.querySelectorAll(".btn-orcamento");
 
-  btnsOrcamento.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
+btnsOrcamento.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-      const card = btn.closest(".card");
-      const nomeProduto = card.querySelector("h3")?.innerText || "Produto";
-      const imagemAtiva = card.querySelector(".images img.active");
-      const urlImagem = imagemAtiva ? imagemAtiva.src : "";
+    const card = btn.closest(".card");
 
-      const mensagem = urlImagem
-        ? `Olá! Gostaria de solicitar um orçamento para o seguinte produto:\n\n` +
-          `📌 *Produto:* ${nomeProduto}\n` +
-          `🖼️ *Foto do modelo selecionado:* ${urlImagem}`
-        : `Olá! Gostaria de solicitar um orçamento para o seguinte produto:\n\n` +
-          `📌 *Produto:* ${nomeProduto}`;
+    const nomeProduto =
+      card.querySelector("h3")?.innerText.trim() || "Produto";
 
-      const linkWhatsApp = `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
-      window.open(linkWhatsApp, "_blank");
-    });
+    const imagemAtiva = card.querySelector(".images img.active");
+    const urlImagem = imagemAtiva ? imagemAtiva.src : "";
+
+    const mensagem =
+      `Olá! Gostaria de solicitar um orçamento.\n\n` +
+      `Produto: ${nomeProduto}\n` +
+      `Modelo selecionado: ${urlImagem ? "Sim" : "Não identificado"}\n\n` +
+      `Poderia me informar o valor e o prazo de produção?`;
+
+    const linkWhatsApp =
+      `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(linkWhatsApp, "_blank");
   });
-
+});
   // ==========================================
   // 4. MENU DO CELULAR (hambúrguer)
   // ==========================================
