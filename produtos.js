@@ -1,15 +1,7 @@
-// =====================================================================
-// PARTE 1 — AQUI VOCÊ EDITA
-// Para adicionar uma foto: coloque o nome do arquivo na lista "imagens".
-// Para adicionar uma categoria nova: copie um bloco { ... }, cole abaixo
-// e troque o título, a descrição e as fotos.
-// =====================================================================
+
 
 // =====================================================================
-// PARTE 1 — AQUI VOCÊ EDITA
-// Para adicionar uma foto: coloque o nome do arquivo na lista "imagens".
-// Para adicionar uma categoria nova: copie um bloco { ... }, cole abaixo
-// e troque o título, a descrição e as fotos.
+// adc de produtos
 // =====================================================================
 
 const PASTA_IMAGENS = "./img/";
@@ -145,24 +137,25 @@ const categorias = [
 
         ]
     },
-    {
-        titulo: "Miniaturas e personagens",
-        palavras: "miniatura miniaturas boneco bonecos personagem videogame mario hulk homem aranha patolino bart palhaco corinthians colecao",
-        descricao: "Miniaturas 3D prontas e personalizadas de personagens, bonecos e projetos. Peças únicas com detalhes incríveis para colecionar, presentear ou decorar!",
-        imagens: [
-            "personagens videogame.jpeg",
-            "palhaço.jpeg",
-            "boneco flajola.png",
-            "boneco mario.png",
-            "boneco homem aranha.png",
-            "boneco hulk.png",
-            "boneco patolino.png",
-            "boneco bart.png",
-            "boneco corinthias.png",
-            "miniaturatime1.jpeg",
-            "miniaturatime2.jpeg",
-        ]
-    },
+{
+    titulo: "Miniaturas e personagens",
+    palavras: "miniatura miniaturas boneco bonecos personagem videogame mario hulk homem aranha patolino bart palhaco corinthians colecao",
+    descricao: "Miniaturas 3D prontas e personalizadas de personagens, bonecos e projetos. Peças únicas com detalhes incríveis para colecionar, presentear ou decorar!",
+    imagens: [
+        "personagens videogame.jpeg",
+        "palhaço.jpeg",
+        "boneco flajola.png",
+        "boneco mario.png",
+        "boneco homem aranha.png",
+        "boneco hulk.png",
+        "boneco patolino.png",
+        "boneco bart.png",
+        "boneco corinthias.png",
+        "miniaturatime1.jpeg",
+        "miniaturatime2.jpeg",
+        ...gerarFotos("boneco-", 14, ".jpeg"),
+    ]
+},
     {
         titulo: "Porta canetas",
         palavras: "peca pecas personalizada porta joias porta caneta bucha bob esponja organizador encomenda sob medida",
@@ -238,7 +231,8 @@ const categorias = [
     },
     {
         titulo: "Microfones",
-        descricao: "Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.",
+        palavras:"microfones blog vlog video gravar",
+        descricao: "Suportes para microfone personalizados com seu @ ou logomarca! Feitos em impressão 3D, são práticos, criativos e fazem o maior sucesso entre as blogueiras.",
         imagens: [
             "microfone1.jpeg",
             "microfone2.jpeg",
@@ -260,7 +254,8 @@ const categorias = [
     },
     {
         titulo: "Porta joias ",
-        descricao: "Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.",
+        palavras:"porta joias organizador pratico praticidade dia dia presente",
+        descricao: "Praticidade e charme para organizar suas joias ou presentear quem você ama!",
         imagens: [
             "porta joias 1.jpeg",
             "portajoia1.jpeg",
@@ -286,7 +281,8 @@ const categorias = [
     },
     {
         titulo: "Suportes - telefone - play game",
-        descricao: "Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.",
+        palavras:"suportes telefone video game suporte celular presente",
+        descricao: "Pequenos suportes que fazem a diferença! Mais praticidade e organização para seu celular e controle de videogame.",
         imagens: [
             "suporte1.jpeg",
             "suporte2.jpeg",
@@ -315,7 +311,8 @@ const categorias = [
     },
     {
         titulo: "Natal",
-        descricao: "Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.",
+        palavras:"Natal decoração papai noel decorar enfeite presente",
+        descricao: "O Natal está chegando! Encomende suas decorações e deixe essa época ainda mais especial. ",
         imagens: [
             "natal1.jpeg",
             "natal2.jpeg",
