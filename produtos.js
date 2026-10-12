@@ -94,7 +94,28 @@ const categorias = [
             "imgovodragao (6).jpeg",
             "imgclickbola.jpg",
             "ovo de dragaoo.jpeg",
-            "ovo de dragaoo2q.jpeg"
+            "ovo de dragaoo2q.jpeg",
+            "brinquedo1.jpeg",
+            "brinquedo2.jpeg",
+            "brinquedo3.jpeg",
+            "brinquedo4.jpeg",
+            "brinquedo5.jpeg",
+            "brinquedo6.jpeg",
+            "brinquedo7.jpeg",
+            "brinquedo8.jpeg",
+            "brinquedo9.jpeg",
+            "brinquedo10.jpeg",
+            "brinquedo11.jpeg",
+            "brinquedo12.jpeg",
+            "brinquedo13.jpeg",
+            "brinquedo14.jpeg",
+            "brinquedo15.jpeg",
+            "brinquedo16.jpeg",
+            "brinquedo17.jpeg",
+            "brinquedo18.jpeg",
+            "brinquedo19.jpeg",
+            "brinquedo20.jpeg",
+            
         ]
     },
     {
@@ -108,7 +129,20 @@ const categorias = [
             "suporte garrafa long neck.jpeg",
             "suporte lata dourado e verde.jpeg",
             "suporte lata moster 2.jpeg",
-            "suporte lata moster.jpeg"
+            "suporte lata moster.jpeg",
+            "copo1.jpeg",
+            "copo2.jpeg",
+            "copo3.jpeg",
+            "copo4.jpeg",
+            "copo5.jpeg",
+            "copo6.jpeg",
+            "copo7.jpeg",
+            "copo8.jpeg",
+            "copo9.jpeg",
+            "copo10.jpeg",
+            "copo11.jpeg",
+           
+
         ]
     },
     {
@@ -137,8 +171,32 @@ const categorias = [
             "porta caneta nome simples.jpeg",
             "porta caneta simples2.jpeg",
             "porta caneta (expresso caipira).jpeg",
+            "portacaneta1",
+            "portacaneta2",
+            "portacaneta3",
+            "portacaneta4",
+            "portacaneta5",
+            "portacaneta6",
+            "portacaneta7",
+            "portacaneta8",
+            "portacaneta9",
+            "portacaneta10",
+            "portacaneta11",
+            "portacaneta12",
+            "portacaneta13",
+            "portacaneta14",
+            "portacaneta15",
+            "portacaneta16",
+            "portacaneta17",
+            "portacaneta18",
+            "portacaneta19",
+            "portacaneta20",
+            "portacaneta21",
+            "portacaneta22",
+        
         ]
     },
+    
 
 
     {
@@ -161,6 +219,19 @@ const categorias = [
             "placa nfc13.jpeg",
             "placa nfc14.jpeg",
             "placa nfc15.jpeg",
+            "placa nfc16.jpeg",
+            "placa nfc17.jpeg",
+            "placa nfc18.jpeg",
+            "placa nfc19.jpeg",
+            "placa nfc20.jpeg",
+            "placa nfc21.jpeg",
+            "placa nfc22.jpeg",
+            "placa nfc23.jpeg",
+            "placa nfc24.jpeg",
+            "placa nfc25.jpeg",
+            
+            
+
 
 
         ]
@@ -181,8 +252,13 @@ const categorias = [
             "microfone10.jpeg",
             "microfone11.jpeg",
             "microfone12.jpeg",
-            "microfone13.jpeg"
-
+            "microfone13.jpeg",
+            "microfone14.jpeg",
+            "microfone15.jpeg",
+            "microfone16.jpeg",
+            "microfone17.jpeg",
+            "microfone18.jpeg",
+            "microfone19.jpeg",
         ]
     },
     {
@@ -207,19 +283,40 @@ const categorias = [
             "portajoia15.jpeg",
             "portajoia16.jpeg",
             "portajoia17.jpeg",
-        
+
 
         ]
     },
     {
         titulo: "Suportes - telefone - play game",
         descricao: "Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.",
-        imagens: []
+        imagens: [
+            "suporte1.jpeg",
+            "suporte2.jpeg",
+            "suporte3.jpeg",
+            "suporte4.jpeg",
+            "suporte5.jpeg",
+            "suporte6.jpeg",
+            "suporte7.jpeg",
+            "suporte8.jpeg",
+            "suporte9.jpeg",
+            "suporte10.jpeg",
+    
+        ]
     },
     {
-        titulo: "Categoria 5",
+        titulo: "Natal",
         descricao: "Em breve, novidades desta categoria. Peça mais informações pelo WhatsApp.",
-        imagens: []
+        imagens: [
+            "natal1.jpeg",
+            "natal2.jpeg",
+            "natal3.jpeg",
+            "natal4.jpeg",
+            "natal5.jpeg",
+            "natal6.jpeg",
+            "natal7.jpeg",
+            "natal8.jpeg",
+        ]
     }
 ];
 
