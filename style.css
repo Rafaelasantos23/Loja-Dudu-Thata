@@ -1025,3 +1025,38 @@ html {
   color: #fff;
   font-size: 14px;
 }
+.carousel {
+  touch-action: pan-y;
+  overscroll-behavior-x: none;
+}
+
+.images img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Modal (foto ampliada): arrasta para o lado sem puxar a página de trás */
+.modal {
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+}
+
+.modal-content {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* No celular não existe "passar o mouse": tira o zoom que grudava após o toque */
+@media (hover: none) {
+  .card:hover .images img.active {
+    transform: none;
+  }
+  .card:hover {
+    transform: none;
+    box-shadow: var(--shadow);
+  }
+}
