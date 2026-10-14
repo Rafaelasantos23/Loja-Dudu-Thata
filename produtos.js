@@ -193,7 +193,7 @@ const categorias = [
 
 
     {
-        titulo: "Para o seu Negocio",
+        titulo: "Placa NFC - Para seu negocio.",
         palavras: "praticidade dia dia negocio placa nfc",
         descricao: "Placas NFC para facilitar seu dia dia",
         imagens: [
@@ -280,7 +280,7 @@ const categorias = [
         ]
     },
     {
-        titulo: "Suportes - telefone - play game",
+        titulo: "Suportes - telefone - controle de V-Gamer",
         palavras:"suportes telefone video game suporte celular presente",
         descricao: "Pequenos suportes que fazem a diferença! Mais praticidade e organização para seu celular e controle de videogame.",
         imagens: [

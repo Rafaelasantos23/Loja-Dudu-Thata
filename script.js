@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
- 
   const SEU_NUMERO_WHATSAPP = typeof WHATSAPP !== "undefined" ? WHATSAPP : "5562995616767";
 
   // "reduzir movimento" ligado no celular/PC não recebe troca automática de fotos
   const reduzMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Enquanto o modal está aberto, o autoplay dos cards fica parado
+  let modalAberto = false;
 
   // ==========================================
   // 1. CARROSSÉIS (ROTAÇÃO, INDICADORES NUMERADOS E SWIPE)
@@ -17,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = carousel.querySelector(".next");
     const prevBtn = carousel.querySelector(".prev");
 
-    if (!images.length) return; 
+    if (!images.length) return;
 
     let currentIndex = 0;
     let autoplayInterval = null;
@@ -86,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const startAutoplay = () => {
       stopAutoplay();
-      if (reduzMovimento) return;
+      if (reduzMovimento || modalAberto) return;
       autoplayInterval = setInterval(nextSlide, 3000);
     };
 
@@ -132,10 +134,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }, { passive: true });
     }
 
+    // Deixa o modal controlar este carrossel (ir para uma foto, pausar e retomar)
+    carousel.irParaFoto = updateCarousel;
+    carousel.pararAuto = stopAutoplay;
+    carousel.iniciarAuto = startAutoplay;
+
     updateCarousel(currentIndex);
 
     // Só troca as fotos sozinho enquanto o carrossel está visível na tela.
-    // Antes, os 10 carrosséis giravam o tempo todo, mesmo fora da tela.
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver((entradas) => {
         entradas.forEach((entrada) => {
@@ -151,16 +157,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================================
   // 2. MODAL DE ZOOM DA IMAGEM (AMPLIAR FOTO)
-  //    Agora dá para passar as fotos com ela aberta:
+  //    Dá para passar as fotos com ela aberta:
   //    arrastando o dedo, pelas setas ‹ › ou pelo teclado.
+  //    Ao fechar, o carrossel do card fica na mesma foto.
   // ==========================================
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-img");
   const closeModal = document.querySelector(".close-modal");
   const allCarouselImages = document.querySelectorAll(".images img");
 
-  let fotosModal = [];   // as fotos do carrossel que foi clicado
-  let indiceModal = 0;   // qual dessas fotos está aberta agora
+  let fotosModal = [];          // as fotos do carrossel que foi clicado
+  let indiceModal = 0;          // qual dessas fotos está aberta agora
+  let carrosselDoModal = null;  // o carrossel (card) que abriu o modal
 
   // Setas e contador são criados aqui, então não precisa mexer no HTML
   let btnModalAnterior = null;
@@ -231,9 +239,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Pega todas as fotos do carrossel onde a pessoa clicou
     const carrossel = img.closest(".carousel");
+    carrosselDoModal = carrossel;
     fotosModal = carrossel
       ? Array.from(carrossel.querySelectorAll(".images img"))
       : [img];
+
+    // Pausa o autoplay do card enquanto o modal estiver aberto
+    modalAberto = true;
+    if (carrossel && carrossel.pararAuto) carrossel.pararAuto();
 
     modal.style.display = "flex";
     mostrarFotoModal(fotosModal.indexOf(img));
@@ -244,6 +257,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!modal) return;
     modal.style.display = "none";
     document.body.style.overflow = "";
+
+    modalAberto = false;
+
+    // Leva o carrossel do card para a foto em que o modal parou
+    if (carrosselDoModal && carrosselDoModal.irParaFoto) {
+      carrosselDoModal.irParaFoto(indiceModal);
+      carrosselDoModal.iniciarAuto();
+    }
+    carrosselDoModal = null;
   };
 
   // Abre o modal ao clicar em qualquer foto do carrossel
@@ -298,37 +320,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // 3. ENVIAR PARA O WHATSAPP
   // ==========================================
- const btnsOrcamento = document.querySelectorAll(".btn-orcamento");
- 
+  const btnsOrcamento = document.querySelectorAll(".btn-orcamento");
+
   btnsOrcamento.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
- 
+
       const card = btn.closest(".card");
       const nomeProduto = card.querySelector("h3")?.innerText || "Produto";
       const imagemAtiva = card.querySelector(".images img.active");
       const todasFotos = Array.from(card.querySelectorAll(".images img"));
       const numeroFoto = imagemAtiva ? todasFotos.indexOf(imagemAtiva) + 1 : 0;
- 
+
       // Parênteses no link atrapalham o WhatsApp: troca por versão segura
       const urlImagem = imagemAtiva
         ? imagemAtiva.src.replace(/\(/g, "%28").replace(/\)/g, "%29")
         : "";
- 
+
       let mensagem =
         `Olá! Gostaria de solicitar um orçamento para o seguinte produto:\n\n` +
         `📌 *Produto:* ${nomeProduto}`;
- 
+
       if (urlImagem) {
         mensagem +=
           `\n🔢 *Modelo:* foto ${numeroFoto} de ${todasFotos.length}` +
           `\n🖼️ *Foto escolhida:*\n${urlImagem}`;
       }
- 
+
       const linkWhatsApp = `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
       window.open(linkWhatsApp, "_blank");
     });
   });
+
   // ==========================================
   // 4. MENU DO CELULAR (hambúrguer)
   // ==========================================
