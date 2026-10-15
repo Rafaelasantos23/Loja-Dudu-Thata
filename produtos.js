@@ -7,10 +7,7 @@
 const PASTA_IMAGENS = "./img/";
 const WHATSAPP = "5562995616767";
 
-// ATALHO PARA MUITAS FOTOS: se as fotos tiverem nomes numerados
-// (decoracao-1.jpg, decoracao-2.jpg ...), em vez de escrever uma por uma use:
-//   imagens: gerarFotos("decoracao-", 12, ".jpg")
-// Isso cria decoracao-1.jpg até decoracao-12.jpg. Para somar uma foto, aumente o número.
+
 function gerarFotos(prefixo, quantidade, extensao) {
     const lista = [];
     for (let i = 1; i <= quantidade; i++) {

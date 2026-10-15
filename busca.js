@@ -1,7 +1,5 @@
 // =====================================================================
 // BARRA DE PESQUISA DO CATÁLOGO
-// Cria o campo de pesquisa sozinho, acima dos cards, e esconde os cards
-// que não combinam com o que a pessoa digitou.
 // =====================================================================
 
 (function () {

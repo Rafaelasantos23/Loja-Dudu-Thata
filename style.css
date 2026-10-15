@@ -455,7 +455,7 @@ section {
 }
 
 /* BAMBU HANDY */
-.bambu {
+/*.bambu {
   text-align: center;
   background: var(--paper);
 }
@@ -493,7 +493,7 @@ section {
 .btn-bambu:focus-visible {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0, 184, 169, .35);
-}
+}*/
 
 /* SOBRE */
 .texto {
@@ -604,8 +604,7 @@ footer {
   }
 
   .hero {
-    /* Tela cheia no celular também — só desce pro catálogo ao rolar ou
-       clicar em "Ver Produtos", igual já era no PC. */
+    /* Tela cheia no celular */
     min-height: 100vh;
     min-height: 100svh;
     padding-top: 130px;
@@ -816,9 +815,6 @@ html {
 
 /* ==========================================================================
    INDICADORES NUMERADOS DO CARROSSEL — "1 2 3 4 5" (NOVO)
-   Ficam numa faixa abaixo da foto (não por cima), com rolagem horizontal
-   quando há muitas fotos — assim a imagem e o texto do card não ficam
-   escondidos atrás dos números.
    ========================================================================== */
 .carousel-dots {
   position: static;
@@ -908,10 +904,8 @@ html {
 }
 
 /* ==========================================================================
-   CARDS "EM BREVE" — para as novas categorias sem fotos ainda (NOVO)
-   Basta trocar este bloco pelo mesmo padrão de carrossel com fotos
-   assim que as imagens da categoria estiverem prontas.
-   ========================================================================== */
+   CARDS "EM BREVE" — para as novas categorias sem fotos ainda.
+   ========================================================================== 
 .placeholder-slide {
   width: 100%;
   height: 320px;
@@ -958,7 +952,7 @@ html {
   .placeholder-slide span.placeholder-label {
     font-size: .68rem;
   }
-}
+}*/
 
 /* Logo: o HTML define width="120" e o CSS height de 90px, o que esticava a
    imagem. width:auto mantém a proporção original. */
@@ -972,7 +966,7 @@ html {
   scroll-padding-top: 120px;
 }
 
-/* O botão hambúrguer só aparece no celular (antes aparecia vazio no PC). */
+/* O botão hambúrguer só aparece no celular. */
 @media (min-width: 769px) {
   .menu-btn {
     display: none;
@@ -980,7 +974,7 @@ html {
 }
 
 @media (max-width: 768px) {
-  /* Logo e hambúrguer lado a lado (antes ficavam um embaixo do outro) */
+  /* Logo e hambúrguer lado a lado  */
   header {
     flex-direction: row;
     gap: 0;
